@@ -32,19 +32,18 @@ export default function ArticleContainer() {
           votes,
         }) => {
           return (
-            <div class="card-column">
-              <ArticleCard
-                key={`${article_id}_Card`}
-                article_id={article_id}
-                title={title}
-                author={author}
-                body={body}
-                comment_count={comment_count}
-                created_at={created_at}
-                topic={topic}
-                votes={votes}
-              />
-            </div>
+            <ArticleCard
+              className="card-column"
+              key={`${article_id}_Card`}
+              article_id={article_id}
+              title={title}
+              author={author}
+              body={body}
+              comment_count={comment_count}
+              created_at={created_at}
+              topic={topic}
+              votes={votes}
+            />
           );
         }
       )}

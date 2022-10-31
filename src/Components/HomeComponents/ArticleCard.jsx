@@ -23,13 +23,13 @@ export default function ArticleCard({
   return (
     <article
       className="article-card" // may have to make different card classes
-      id={`Card-${article_id}`}
+      id={`card-${article_id}`}
     >
-      <ul className="article-card">
-        <li>
+      <ul>
+        <li key={`article-${article_id}`}>
           <h4 className="card-title">{title}</h4>
           <h6 className="card-author">{author}</h6>
-          <h6 lassName="card-topic">{topic}</h6>
+          <h6 className="card-topic">{topic}</h6>
           <div
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
