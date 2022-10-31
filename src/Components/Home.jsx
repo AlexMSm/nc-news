@@ -1,5 +1,9 @@
-import Base from "./Base";
+import ArticleContainer from "./HomeComponents/ArticleContainer";
 
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <ArticleContainer />
+    </div>
+  );
 }
