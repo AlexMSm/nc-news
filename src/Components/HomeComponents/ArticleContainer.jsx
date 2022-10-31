@@ -6,7 +6,6 @@ export default function ArticleContainer() {
   const [articles, setArticles] = useState([]);
   const [articlesLoading, setArticlesLoading] = useState(true);
   const [query, setQuery] = useState({});
-  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     setArticlesLoading(true);
