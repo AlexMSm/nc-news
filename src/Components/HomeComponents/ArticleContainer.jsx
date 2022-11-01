@@ -1,11 +1,19 @@
 import ArticleCard from "./ArticleCard";
 import { useState, useEffect } from "react";
 import { getArticles } from "../../api";
+import { useParams } from "react-router-dom";
 
 export default function ArticleContainer() {
+  const params = useParams();
+  console.log("params", params);
+
   const [articles, setArticles] = useState([]);
   const [articlesLoading, setArticlesLoading] = useState(true);
   const [query, setQuery] = useState({});
+
+  useEffect(() => {
+    setQuery(params);
+  }, [params]);
 
   useEffect(() => {
     setArticlesLoading(true);

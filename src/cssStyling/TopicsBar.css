@@ -1,0 +1,20 @@
+.topics-bar {
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  border: solid 1px black;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.topic-card {
+  border-radius: 10px;
+  max-width: 7em;
+  padding: 0.2em;
+  margin: 0.2em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  justify-content: space-evenly;
+}

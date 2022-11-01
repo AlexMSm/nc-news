@@ -1,5 +1,7 @@
 import "./App.css";
 import "./cssStyling/home.css";
+import "./cssStyling/HeaderBar.css";
+import "./cssStyling/TopicsBar.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "./Context/UserContext";
@@ -21,7 +23,7 @@ function App() {
           <Base />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Topic/:topic" element={<TopicPage />} />
+            <Route path="/Topics/:topic" element={<TopicPage />} />
             <Route path="/Article/:article_id" element={<Article />} />
             <Route path="/Comments/:article_id" element={<CommentsPage />} />
             <Route path="/Profile/butter_bridge" element={<ProfilePage />} />

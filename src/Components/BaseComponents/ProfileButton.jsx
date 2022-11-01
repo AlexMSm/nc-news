@@ -7,7 +7,7 @@ export default function ProfileButton() {
 
   return (
     <Link to={`/Profile`}>
-      <div className="profile-link">{user}</div>
+      <div className="profile-button">{user}</div>
     </Link>
   );
 }
