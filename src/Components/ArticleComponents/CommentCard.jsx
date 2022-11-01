@@ -15,7 +15,6 @@ export default function CommentCard({
     }
   };
 
-  console.log(author);
   return (
     <div className="article-comment-card">
       <span className="comment-span">
