@@ -2,6 +2,7 @@ import "./App.css";
 import "./cssStyling/home.css";
 import "./cssStyling/HeaderBar.css";
 import "./cssStyling/TopicsBar.css";
+import "./cssStyling/Article.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "./Context/UserContext";

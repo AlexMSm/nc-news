@@ -4,12 +4,10 @@ import { getArticles } from "../../api";
 import { useParams } from "react-router-dom";
 
 export default function ArticleContainer() {
-  const params = useParams();
-  console.log("params", params);
-
   const [articles, setArticles] = useState([]);
   const [articlesLoading, setArticlesLoading] = useState(true);
   const [query, setQuery] = useState({});
+  const params = useParams();
 
   useEffect(() => {
     setQuery(params);
@@ -18,7 +16,6 @@ export default function ArticleContainer() {
   useEffect(() => {
     setArticlesLoading(true);
     getArticles(query).then((res) => {
-      console.log(res);
       setArticles(res);
       setArticlesLoading(false);
     });

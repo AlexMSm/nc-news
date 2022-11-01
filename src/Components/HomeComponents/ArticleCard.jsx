@@ -1,5 +1,7 @@
 import ArticleVoteButton from "../ReusedButtons.jsx/ArticleVoteButton";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function ArticleCard({
   article_id,
@@ -27,6 +29,11 @@ export default function ArticleCard({
     >
       <ul>
         <li key={`article-${article_id}`}>
+          <div>
+            <Link to={`/Article/${article_id}`}>
+              <div className="article-link">{title}</div>
+            </Link>
+          </div>
           <h4 className="card-title">{title}</h4>
           <h6 className="card-author">{author}</h6>
           <h6 className="card-topic">{topic}</h6>

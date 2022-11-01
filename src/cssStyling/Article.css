@@ -1,0 +1,57 @@
+.content-container {
+  border: 1px solid black;
+  height: 50%;
+  padding: 10px;
+}
+.content-container > span > time,
+h6 {
+  display: inline;
+  margin: 10%;
+}
+
+.article-comment-container {
+  border: 4px solid green;
+  overflow: auto;
+  height: 20pc;
+}
+
+.article-comment-card {
+  border: 1px solid red;
+  margin: 0;
+  padding: 0;
+  height: 18%;
+}
+
+.comment-form {
+  border: 1px solid brown;
+}
+
+.content-container > .article-vote-button {
+  background-color: aquamarine;
+}
+
+.article-comment-card > p {
+  font-size: xx-small;
+}
+
+.article-comment-card > span > p {
+  font-size: xx-small;
+  display: inline;
+}
+
+div.article-comment-container {
+  overflow: scroll;
+}
+div.article-comment-card {
+  overflow: scroll;
+}
+
+.votes-counter-green {
+  color: green;
+}
+.votes-counter-red {
+  color: red;
+}
+.votes-counter-neutral {
+  color: black;
+}
