@@ -1,0 +1,51 @@
+.header-bar,
+h1,
+.side {
+  display: flex;
+  vertical-align: middle;
+}
+
+h1,
+.side {
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #39603d;
+}
+
+.header-bar {
+  width: 92%;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2vw;
+  padding: 2vw;
+  border-radius: 7px;
+  border: 1px solid green;
+  background-color: #a3bcb6;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0.25em 0.2em;
+}
+
+@media screen and (max-width: 489px) {
+  h1 {
+    font-size: xx-large;
+  }
+}
+
+.home-button {
+  border: #3c403d;
+  color: #39603d;
+  padding: 10px;
+  background-color: #daded4;
+  border-radius: 10px;
+}
+.profile-button {
+  border: #3c403d;
+  color: #39603d;
+  padding: 10px;
+  background-color: #daded4;
+  border-radius: 10px;
+}

@@ -4,7 +4,7 @@ export default function HomeButton() {
   return (
     <div>
       <Link to={`/`}>
-        <div id="HomeButton">Home</div>
+        <div className="home-button">Home</div>
       </Link>
     </div>
   );
