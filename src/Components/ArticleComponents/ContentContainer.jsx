@@ -1,7 +1,6 @@
 import ArticleVoteButton from "../ReusedButtons.jsx/ArticleVoteButton";
 
 export default function ContentContainer({ article }) {
-  console.log(article);
   const {
     article_id,
     title,
