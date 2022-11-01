@@ -9,7 +9,6 @@ export default function TopicsBar() {
   useEffect(() => {
     setTopicsLoading(true);
     getTopics().then((res) => {
-      console.log(res);
       setTopics(res);
       setTopicsLoading(false);
     });
