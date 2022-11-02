@@ -24,7 +24,7 @@ export default function ContentContainer({ article }) {
         <h3>{title}</h3>
         <p>{body}</p>
       </article>
-      <ArticleVoteButton />
+      <ArticleVoteButton votes={votes} article_id={article_id} />
     </div>
   );
 }
