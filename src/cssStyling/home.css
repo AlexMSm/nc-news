@@ -13,7 +13,7 @@ ul {
   list-style: none;
 }
 
-ul.article-card {
+.article-card {
   border: solid 1px black;
   margin: 10px;
   padding-bottom: 30px;
@@ -23,10 +23,10 @@ ul.article-card {
   height: 85%;
 }
 
-ul.article-card > p {
-  inline-size: 150px;
-  overflow: hidden;
-  border: solid 1px black;
+.article-card > h6 {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
 }
 
 .article-vote-button {
@@ -68,4 +68,13 @@ div.article-container {
 .card-topic {
   display: flex;
   vertical-align: middle;
+}
+
+.article-preview-button {
+  border: solid black 1px;
+}
+.article_preview {
+  height: 10px;
+  overflow: auto;
+  border: 1px solid black;
 }

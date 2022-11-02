@@ -16,6 +16,11 @@ export default function ArticleContainer() {
   useEffect(() => {
     setArticlesLoading(true);
     getArticles(query).then((res) => {
+      res.forEach((article) => {
+        let newDate = new Date(article.created_at);
+        let formatedDate = newDate.toDateString();
+        article.created_at = formatedDate;
+      });
       setArticles(res);
       setArticlesLoading(false);
     });

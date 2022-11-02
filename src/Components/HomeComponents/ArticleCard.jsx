@@ -35,22 +35,22 @@ export default function ArticleCard({
             </Link>
           </div>
           <h4 className="card-title">{title}</h4>
-          <h6 className="card-author">{author}</h6>
-          <h6 className="card-topic">{topic}</h6>
+          <p className="card-author">{author}</p>
+          <p className="card-topic">{topic}</p>
           <div
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
-            className="article-preview"
+            className="article-preview-button"
           >
             Preview article.
           </div>
           {isHovering && (
-            <div>
+            <div className="article-preview">
               <p>{body}</p>
             </div>
           )}
           <h6>{created_at}</h6>
-          <h6>{comment_count}</h6>
+          <h6>Comment count: {comment_count}</h6>
           <ArticleVoteButton article_id={article_id} votes={votes} />
         </li>
       </ul>
