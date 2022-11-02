@@ -28,7 +28,8 @@ h6 {
 
 .content-container > .article-vote-button {
   background-color: aquamarine;
-  height: 20px;
+  height: auto;
+  width: 10pc;
   display: inline-flex;
 }
 
@@ -70,12 +71,12 @@ div.article-comment-card {
 
 input.like-btn {
   color: none;
-  width: 20px;
+  width: 4pc;
   margin: 0;
 }
 input.dislike-btn {
   color: none;
-  width: 20px;
+  width: 4pc;
   margin: 0;
 }
 

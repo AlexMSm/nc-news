@@ -34,7 +34,6 @@ export function getCommentsByArticleById(article_id) {
 }
 
 export function patchVoteById(article_id, body) {
-  console.log(article_id, body);
   return ncNewsApi.patch(`articles/${article_id}`, body).then((res) => {
     return res.data.votes;
   });

@@ -8,35 +8,34 @@ export default function ArticleVoteButton({ article_id, votes }) {
   const [dislikeId, setDislikeId] = useState("neutral");
 
   const handleLikeClick = (event) => {
+    console.log("vote", vote);
     if (likeId === "neutral") {
       setLikeId("liked");
-
-      console.log(likeId, dislikeId);
-
       if (dislikeId === "disliked") {
-        setVote((vote) => vote + 2);
+        setVote(2);
       } else {
-        setVote((vote) => vote + 1);
+        setVote(1);
       }
       setDislikeId("neutral");
     } else if (likeId === "liked") {
       setLikeId("neutral");
-      setVote((vote) => vote - 1);
+      setVote(-1);
     }
   };
 
   const handleDislikeClick = (event) => {
+    console.log("vote", vote);
     if (dislikeId === "neutral") {
       setDislikeId("disliked");
       if (likeId === "liked") {
-        setVote((vote) => vote - 2);
+        setVote(-2);
       } else {
-        setVote((vote) => vote - 1);
+        setVote(-1);
       }
       setLikeId("neutral");
     } else if (dislikeId === "disliked") {
       setDislikeId("neutral");
-      setVote((vote) => vote + 1);
+      setVote(1);
     }
   };
 
@@ -57,14 +56,14 @@ export default function ArticleVoteButton({ article_id, votes }) {
           className="like-btn"
           id={likeId}
           onClick={handleLikeClick}
-          value="Y"
+          value="Like"
         ></input>
         <input
           type="button"
           className="dislike-btn"
           id={dislikeId}
           onClick={handleDislikeClick}
-          value="N"
+          value="Dislike"
         ></input>
       </span>
       <h5 className="article-vote-count">{voteCount}</h5>
