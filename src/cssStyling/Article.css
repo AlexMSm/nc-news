@@ -28,6 +28,9 @@ h6 {
 
 .content-container > .article-vote-button {
   background-color: aquamarine;
+  height: auto;
+  width: 10pc;
+  display: inline-flex;
 }
 
 .article-comment-card > p {
@@ -54,4 +57,44 @@ div.article-comment-card {
 }
 .votes-counter-neutral {
   color: black;
+}
+
+.btn {
+  cursor: pointer;
+  outline: 0;
+  color: green;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+input.like-btn {
+  color: none;
+  width: 4pc;
+  margin: 0;
+}
+input.dislike-btn {
+  color: none;
+  width: 4pc;
+  margin: 0;
+}
+
+#liked {
+  background-color: olivedrab;
+}
+#disliked {
+  background-color: crimson;
+}
+#neutral {
+  background-color: bisque;
+}
+.article-vote-count {
+  display: inline;
+  font-style: oblique;
+  font-size: 10px;
+  border: 1px black solid;
+  margin: 0;
+  padding: 0;
+  width: 25%;
 }

@@ -24,6 +24,7 @@ export default function CommentsContainer({ article_id }) {
         let formatedDate = newDate.toDateString();
         return (
           <CommentCard
+            key={`article-comment-${comment_id}`}
             author={author}
             body={body}
             comment_id={comment_id}
