@@ -29,18 +29,6 @@ ul {
   display: inline;
 }
 
-.article-vote-button {
-  border: solid 1px black;
-  margin: 0px;
-  width: 70px;
-  height: 10px;
-  font-size: 0.2em;
-}
-
-.article-card.article-vote-button {
-  font-size: 0.5em;
-}
-
 article.article-card {
   height: 140px;
 }

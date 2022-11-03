@@ -51,7 +51,6 @@ export default function ArticleCard({
           )}
           <h6>{created_at}</h6>
           <h6>Comment count: {comment_count}</h6>
-          <ArticleVoteButton article_id={article_id} votes={votes} />
         </li>
       </ul>
     </article>
