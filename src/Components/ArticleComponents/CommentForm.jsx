@@ -12,13 +12,18 @@ export default function CommentForm({
   const isTextareaDisabled = text.length === 0;
   const onSubmit = (event) => {
     event.preventDefault();
-    let comment = { body: text, username: user.username };
-    postComment(article_id, comment);
-    setText("");
+    if (/^(?!\s*$).+/.test(text)) {
+      let trimmedText = text.trim();
+      let comment = { body: trimmedText, username: user.username };
+      postComment(article_id, comment);
+      setText("");
+    } else {
+      setText("");
+    }
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="comment-submit">
       <textarea
         className="comment-form-textarea"
         value={text}
