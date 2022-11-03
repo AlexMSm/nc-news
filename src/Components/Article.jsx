@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { getArticleById } from "../api";
 import ContentContainer from "./ArticleComponents/ContentContainer";
 import CommentsContainer from "./ArticleComponents/CommentContainer";
-import PostCommentButton from "./ArticleComponents/PostCommentButton";
 import TopicsBar from "./HomeComponents/TopicsBar";
 
 export default function Article() {
@@ -25,7 +24,6 @@ export default function Article() {
     <div>
       <ContentContainer article={article} />
       <CommentsContainer article_id={article_id} />
-      <PostCommentButton />
       <TopicsBar />
     </div>
   );

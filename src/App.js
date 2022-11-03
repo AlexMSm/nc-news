@@ -17,10 +17,10 @@ import ProfilePage from "./Components/ProfilePage";
 
 function App() {
   const [user, setUser] = useState({
-    username: "butter_bridge",
-    name: "jonny",
+    username: "happyamy2016",
+    name: "Amy Happy",
     avatar_url:
-      "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg",
+      "https://vignette1.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729",
   });
 
   return (

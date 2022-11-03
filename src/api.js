@@ -47,3 +47,13 @@ export function getUserByUsername(username) {
     })
     .catch((err) => {});
 }
+export function postCommentToArticle(article_id, comment) {
+  return ncNewsApi
+    .post(`articles/${article_id}/comments`, comment)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
+}
