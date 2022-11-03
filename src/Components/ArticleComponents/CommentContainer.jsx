@@ -1,6 +1,8 @@
 import CommentCard from "./CommentCard";
+import CommentForm from "./CommentForm";
 import { useState, useEffect } from "react";
 import { getCommentsByArticleById } from "../../api";
+import { postCommentToArticle } from "../../api";
 
 export default function CommentsContainer({ article_id }) {
   const [comments, setComments] = useState([]);
@@ -18,11 +20,28 @@ export default function CommentsContainer({ article_id }) {
     });
   }, [article_id]);
 
+  const postComment = (article_id, comment) => {
+    postCommentToArticle(article_id, comment).then((res) => {
+      setSortComments((sortComments) => {
+        let newSet = [...sortComments];
+        newSet.unshift(res);
+        setSortComments(newSet);
+        return newSet;
+      });
+    });
+  };
+
   if (commentsLoading) return <h3>Comments loading...</h3>;
 
   return (
     <div className="comments">
       <h3 className="comments-title">Comments</h3>
+      <div className="comment-form-title">Write comment</div>
+      <CommentForm
+        submitLabel="Post"
+        article_id={article_id}
+        postComment={postComment}
+      />
       <div className="article-comment-container">
         {sortComments.map(({ author, body, comment_id, created_at, votes }) => {
           let newDate = new Date(created_at);

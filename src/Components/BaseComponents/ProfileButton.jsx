@@ -7,8 +7,14 @@ export default function ProfileButton() {
 
   return (
     <Link to={`/Profile`}>
-      <div className="profile-button">{user.username}</div>
-      <img id="profileImage" src={user.avatar_url}></img>
+      <div className="profile-button">
+        <img
+          id="profileImage"
+          src={user.avatar_url}
+          alt={`image of user ${user.username}`}
+        ></img>
+        <div className="profile-name">{user.username}</div>
+      </div>
     </Link>
   );
 }

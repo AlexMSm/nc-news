@@ -75,3 +75,48 @@
 #comment-votes-counter-neutral {
   color: black;
 }
+
+/* Post comment form */
+
+.comment-form-title {
+  font-size: 15px;
+}
+
+.comment-submit {
+  display: flex;
+}
+
+.comment-form-textarea {
+  width: 50%;
+  height: fit-content;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+  border: 1px solid rgb(210, 126, 47);
+  border-radius: 8px;
+}
+
+.comment-form-button {
+  font-size: 15px;
+  padding: 8px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+
+  background: rgb(147, 169, 205);
+  border-radius: 8px;
+  color: white;
+}
+
+.comment-form-button:hover:enabled {
+  cursor: pointer;
+  background: rgb(5, 84, 254);
+}
+
+.comment-form-button:enabled {
+  background: rgb(58, 88, 154);
+}
+
+.comment-form-button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}

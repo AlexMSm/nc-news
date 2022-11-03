@@ -66,3 +66,17 @@ div.article-container {
   overflow: auto;
   border: 1px solid black;
 }
+
+.profile-button {
+  height: 5vh;
+  width: 8vw;
+}
+
+#profileImage {
+  border-radius: 10px;
+  height: 4vh;
+}
+.profile-name {
+  transform: translate(-50%, -50%);
+  font-size: xx-small;
+}
