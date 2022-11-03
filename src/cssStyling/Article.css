@@ -9,46 +9,6 @@ h6 {
   margin: 10%;
 }
 
-.article-comment-container {
-  border: 4px solid green;
-  overflow: auto;
-  height: 20pc;
-}
-
-.article-comment-card {
-  border: 1px solid red;
-  margin: 0;
-  padding: 0;
-  height: 18%;
-}
-
-.comment-form {
-  border: 1px solid brown;
-}
-
-.content-container > .article-vote-button {
-  background-color: aquamarine;
-  height: auto;
-  width: 10pc;
-  display: inline-flex;
-}
-
-.article-comment-card > p {
-  font-size: xx-small;
-}
-
-.article-comment-card > span > p {
-  font-size: xx-small;
-  display: inline;
-}
-
-div.article-comment-container {
-  overflow: scroll;
-}
-div.article-comment-card {
-  overflow: scroll;
-}
-
 .votes-counter-green {
   color: green;
 }
@@ -59,14 +19,9 @@ div.article-comment-card {
   color: black;
 }
 
-.btn {
-  cursor: pointer;
-  outline: 0;
-  color: green;
-}
-
-.btn:focus {
-  outline: none;
+.like-btn,
+.dislike-btn {
+  border-radius: 10px;
 }
 
 input.like-btn {
@@ -79,7 +34,6 @@ input.dislike-btn {
   width: 4pc;
   margin: 0;
 }
-
 #liked {
   background-color: olivedrab;
 }
@@ -89,12 +43,24 @@ input.dislike-btn {
 #neutral {
   background-color: bisque;
 }
+
+.content-container > .article-vote-button-container {
+  height: auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
 .article-vote-count {
   display: inline;
   font-style: oblique;
-  font-size: 10px;
+  font-stretch: wider;
+  font-size: 3vw;
+  text-align: center;
   border: 1px black solid;
   margin: 0;
   padding: 0;
   width: 25%;
+  border-radius: 10px;
 }

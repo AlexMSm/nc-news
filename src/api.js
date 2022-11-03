@@ -38,3 +38,12 @@ export function patchVoteById(article_id, body) {
     return res.data.votes;
   });
 }
+
+export function getUserByUsername(username) {
+  return ncNewsApi
+    .get(`users/${username}`)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {});
+}
