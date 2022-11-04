@@ -17,7 +17,7 @@ ul {
   border: solid 1px black;
   margin: 10px;
   padding-bottom: 30px;
-  background-color: rgba(246, 236, 236, 0.849);
+  background-color: rgb(191, 212, 150);
   list-style-type: none;
   border-radius: 10px;
   height: 85%;
@@ -79,4 +79,46 @@ div.article-container {
 .profile-name {
   transform: translate(-50%, -50%);
   font-size: xx-small;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.sort-by-menu {
+  position: absolute;
+  list-style-type: none;
+  margin: 5px 0;
+  padding: 0;
+  border: 1px solid grey;
+  width: fit-content;
+  background-color: olivedrab;
+}
+
+.sort-by-menu > li {
+  margin: 0;
+  background-color: white;
+}
+
+.sort-by-menu > li:hover {
+  background-color: rgb(94, 205, 15);
+}
+
+.sort-by-menu > li > button {
+  text-align: left;
+  width: fit-content;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: flex;
+  gap: 1vw;
+  width: fit-content;
+  margin-left: 3vw;
 }

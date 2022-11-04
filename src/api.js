@@ -5,13 +5,18 @@ const ncNewsApi = axios.create({
 });
 
 export function getArticles(query) {
+  ///console.log("query in the api", query);
+
   return ncNewsApi
     .get("/articles", {
       params: {
         topic: query.topic,
+        order: query.order,
+        sort_by: query.sort_by,
       },
     })
     .then((res) => {
+      console.log(res, "API response");
       return res.data;
     });
 }

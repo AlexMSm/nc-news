@@ -1,30 +1,50 @@
 import ArticleCard from "./ArticleCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getArticles } from "../../api";
 import { useParams } from "react-router-dom";
+import { ArticleSOContext } from "../../Context/ArticleSOContext";
 
 export default function ArticleContainer() {
   const [articles, setArticles] = useState([]);
   const [articlesLoading, setArticlesLoading] = useState(true);
-  const [query, setQuery] = useState({});
+  const [topic, setTopic] = useState({});
   const params = useParams();
+  const { sort, order } = useContext(ArticleSOContext);
+  const [SOUpdate, setSOUpdate] = useState({});
 
   useEffect(() => {
-    setQuery(params);
+    let newQuery = {};
+    if (sort !== "Sort") {
+      newQuery["sort_by"] = sort;
+    }
+    if (order !== "Order") {
+      newQuery["order"] = order;
+    }
+    setSOUpdate(newQuery);
+  }, [sort, order]);
+
+  useEffect(() => {
+    setTopic(params);
   }, [params]);
 
   useEffect(() => {
+    ///...SOUpdate
+    let query = { ...topic, ...SOUpdate };
     setArticlesLoading(true);
     getArticles(query).then((res) => {
       res.forEach((article) => {
         let newDate = new Date(article.created_at);
         let formatedDate = newDate.toDateString();
-        article.created_at = formatedDate;
+        article.formated_date = formatedDate;
       });
+      console.log(query.sort_by);
+      if (query.sort_by) {
+        //res.sort((b, a) => a.sort_by - b.sort_by);
+      }
       setArticles(res);
       setArticlesLoading(false);
     });
-  }, [query]);
+  }, [topic]);
 
   if (articlesLoading) return <h3>Articles loading...</h3>;
 
@@ -38,6 +58,7 @@ export default function ArticleContainer() {
           body,
           comment_count,
           created_at,
+          formated_date,
           topic,
           votes,
         }) => {
@@ -51,6 +72,7 @@ export default function ArticleContainer() {
               body={body}
               comment_count={comment_count}
               created_at={created_at}
+              formated_date={formated_date}
               topic={topic}
               votes={votes}
             />

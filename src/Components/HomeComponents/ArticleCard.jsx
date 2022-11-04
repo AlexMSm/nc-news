@@ -9,6 +9,7 @@ export default function ArticleCard({
   comment_count,
   author,
   created_at,
+  formated_date,
   votes,
 }) {
   const [isHovering, setIsHovering] = useState(false);
@@ -47,8 +48,9 @@ export default function ArticleCard({
               <p>{body}</p>
             </div>
           )}
-          <h6>{created_at}</h6>
+          <h6>{formated_date}</h6>
           <h6>Comment count: {comment_count}</h6>
+          <h6>Article vote: {votes}</h6>
         </li>
       </ul>
     </article>
