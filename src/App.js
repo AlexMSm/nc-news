@@ -15,6 +15,7 @@ import TopicPage from "./Components/TopicPage";
 import Article from "./Components/Article";
 import CommentsPage from "./Components/CommentsPage";
 import ProfilePage from "./Components/ProfilePage";
+import ErrorPage from "./Components/ErrorPage";
 
 function App() {
   const [user, setUser] = useState({
@@ -39,6 +40,7 @@ function App() {
               <Route path="/Article/:article_id" element={<Article />} />
               <Route path="/Comments/:article_id" element={<CommentsPage />} />
               <Route path="/Profile/butter_bridge" element={<ProfilePage />} />
+              <Route path="/*" element={<ErrorPage />} />
             </Routes>
           </div>
         </ArticleSOContext.Provider>

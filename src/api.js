@@ -44,12 +44,9 @@ export function patchVoteById(article_id, body) {
 }
 
 export function getUserByUsername(username) {
-  return ncNewsApi
-    .get(`users/${username}`)
-    .then((res) => {
-      return res.data;
-    })
-    .catch((err) => {});
+  return ncNewsApi.get(`users/${username}`).then((res) => {
+    return res.data;
+  });
 }
 export function postCommentToArticle(article_id, comment) {
   return ncNewsApi

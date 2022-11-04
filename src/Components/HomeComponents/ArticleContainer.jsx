@@ -1,7 +1,7 @@
 import ArticleCard from "./ArticleCard";
 import { useState, useEffect, useContext } from "react";
 import { getArticles } from "../../api";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { ArticleSOContext } from "../../Context/ArticleSOContext";
 
 export default function ArticleContainer() {
@@ -11,6 +11,7 @@ export default function ArticleContainer() {
   const params = useParams();
   const { sort, order } = useContext(ArticleSOContext);
   const [SOUpdate, setSOUpdate] = useState({});
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     let newQuery = {};
@@ -31,18 +32,32 @@ export default function ArticleContainer() {
     ///...SOUpdate
     let query = { ...topic, ...SOUpdate };
     setArticlesLoading(true);
-    getArticles(query).then((res) => {
-      res.forEach((article) => {
-        let newDate = new Date(article.created_at);
-        let formatedDate = newDate.toDateString();
-        article.formated_date = formatedDate;
+    getArticles(query)
+      .then((res) => {
+        res.forEach((article) => {
+          let newDate = new Date(article.created_at);
+          let formatedDate = newDate.toDateString();
+          article.formated_date = formatedDate;
+        });
+        setArticles(res);
+        setArticlesLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setArticlesLoading(false);
       });
-      setArticles(res);
-      setArticlesLoading(false);
-    });
   }, [topic]);
 
   if (articlesLoading) return <h3>Articles loading...</h3>;
+
+  if (error) {
+    return (
+      <div className="article-container-error">
+        <h3>Articles failed to load. Status {error.response.status}.</h3>
+        <p>{error.response.data.msg}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="article-container">

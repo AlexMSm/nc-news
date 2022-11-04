@@ -6,16 +6,36 @@ import SortButtons from "./SortButtons";
 export default function TopicsBar() {
   const [topics, setTopics] = useState([]);
   const [topicsLoading, setTopicsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setTopicsLoading(true);
-    getTopics().then((res) => {
-      setTopics(res);
-      setTopicsLoading(false);
-    });
+    getTopics()
+      .then((res) => {
+        setTopics(res);
+        setTopicsLoading(false);
+      })
+      .catch(({ err }) => {
+        console.dir(err);
+        setTopicsLoading(false);
+        setError(err.msg);
+      });
   }, []);
 
   if (topicsLoading) return <h3>Topics loading ....</h3>;
+
+  if (error) {
+    return (
+      <div>
+        <div className="sort-button">
+          <SortButtons />
+        </div>
+        <div className="topics-bar">
+          <h3>Topics unable to load.</h3>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>

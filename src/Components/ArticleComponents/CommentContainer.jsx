@@ -8,16 +8,21 @@ export default function CommentsContainer({ article_id }) {
   const [comments, setComments] = useState([]);
   const [sortComments, setSortComments] = useState([]);
   const [commentsLoading, setCommentsLoading] = useState(true);
-  const [activeComment, setActiveComment] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setCommentsLoading(true);
-    getCommentsByArticleById(article_id).then((res) => {
-      setComments(res);
-      res.sort((b, a) => a.votes - b.votes); // For sorting by 'likes' by default'
-      setSortComments(res);
-      setCommentsLoading(false);
-    });
+    getCommentsByArticleById(article_id)
+      .then((res) => {
+        setComments(res);
+        res.sort((b, a) => a.votes - b.votes); // For sorting by 'likes' by default'
+        setSortComments(res);
+        setCommentsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setCommentsLoading(false);
+      });
   }, [article_id]);
 
   const postComment = (article_id, comment) => {
@@ -27,11 +32,24 @@ export default function CommentsContainer({ article_id }) {
         newSet.unshift(res);
         setSortComments(newSet);
         return newSet;
+      }).catch((err) => {
+        window.alert(
+          `Comment failed to post. Error status ${err.status}. ${err.response.data.msg}`
+        );
       });
     });
   };
 
   if (commentsLoading) return <h3>Comments loading...</h3>;
+
+  if (error) {
+    return (
+      <div className="comment-error">
+        <h3>Comments failed to load. Status {error.response.status}.</h3>
+        <p>{error.response.data.msg}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="comments">

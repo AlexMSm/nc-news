@@ -9,16 +9,32 @@ export default function Article() {
   const [article, setArticle] = useState([]);
   const [articleLoading, setArticleLoading] = useState(true);
   const { article_id } = useParams();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setArticleLoading(true);
-    getArticleById(article_id).then((res) => {
-      setArticle(res);
-      setArticleLoading(false);
-    });
+    getArticleById(article_id)
+      .then((res) => {
+        setArticle(res);
+        setArticleLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        console.log(err);
+        setArticleLoading(false);
+      });
   }, [article_id]);
 
   if (articleLoading) return <h3>Article loading...</h3>;
+
+  if (error) {
+    return (
+      <div className="article-error">
+        <h3>Article content failed to load. Status {error.response.status}.</h3>
+        <p>{error.response.data.msg}</p>
+      </div>
+    );
+  }
 
   return (
     <div>
