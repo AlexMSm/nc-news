@@ -38,7 +38,6 @@ export default function CommentCard({
     if (window.confirm("Are you sure you want to delete this comment?")) {
       setButtonDisable("true");
       deleteCommentById(comment_id).then((res) => {
-        console.log(res);
         let newCommentsList = sortComments.map((comment) => {
           if (comment_id === comment.comment_id) {
             comment.body = "This message has been deleted.";
