@@ -54,8 +54,8 @@ export default function CommentsContainer({ article_id }) {
               comment_id={comment_id}
               formatedDate={formatedDate}
               votes={votes}
-              activeComment={activeComment}
-              setActiveComment={setActiveComment}
+              sortComments={sortComments}
+              setSortComments={setSortComments}
             />
           );
         })}

@@ -16,7 +16,6 @@ export function getArticles(query) {
       },
     })
     .then((res) => {
-      console.log(res, "API response");
       return res.data;
     });
 }
@@ -61,4 +60,10 @@ export function postCommentToArticle(article_id, comment) {
     .catch((err) => {
       return err;
     });
+}
+
+export function deleteCommentById(comment_id) {
+  return ncNewsApi.delete(`comments/${comment_id}`).then((res) => {
+    return res.data;
+  });
 }
