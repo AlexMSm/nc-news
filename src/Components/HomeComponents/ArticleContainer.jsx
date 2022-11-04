@@ -37,10 +37,6 @@ export default function ArticleContainer() {
         let formatedDate = newDate.toDateString();
         article.formated_date = formatedDate;
       });
-      console.log(query.sort_by);
-      if (query.sort_by) {
-        //res.sort((b, a) => a.sort_by - b.sort_by);
-      }
       setArticles(res);
       setArticlesLoading(false);
     });
