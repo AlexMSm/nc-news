@@ -26,18 +26,21 @@ export default function CommentsContainer({ article_id }) {
   }, [article_id]);
 
   const postComment = (article_id, comment) => {
-    postCommentToArticle(article_id, comment).then((res) => {
-      setSortComments((sortComments) => {
-        let newSet = [...sortComments];
-        newSet.unshift(res);
-        setSortComments(newSet);
-        return newSet;
-      }).catch((err) => {
+    postCommentToArticle(article_id, comment)
+      .then((res) => {
+        setSortComments((sortComments) => {
+          let newSet = [...sortComments];
+          newSet.unshift(res);
+          setSortComments(newSet);
+          return newSet;
+        });
+      })
+      .catch((err) => {
+        console.log(err);
         window.alert(
           `Comment failed to post. Error status ${err.status}. ${err.response.data.msg}`
         );
       });
-    });
   };
 
   if (commentsLoading) return <h3>Comments loading...</h3>;

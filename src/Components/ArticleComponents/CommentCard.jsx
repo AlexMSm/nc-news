@@ -36,7 +36,7 @@ export default function CommentCard({
 
   const deleteComment = (comment_id) => {
     if (window.confirm("Are you sure you want to delete this comment?")) {
-      setButtonDisable("true");
+      setButtonDisable(true);
       deleteCommentById(comment_id).then((res) => {
         let newCommentsList = sortComments.map((comment) => {
           if (comment_id === comment.comment_id) {
