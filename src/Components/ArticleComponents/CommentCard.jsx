@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getUserByUsername } from "../../api";
+import { UserContext } from "../../Context/UserContext";
+import { deleteCommentById } from "../../api";
 
 export default function CommentCard({
   author,
@@ -7,8 +9,8 @@ export default function CommentCard({
   comment_id,
   formatedDate,
   votes,
-  activeComment,
-  setActiveComment,
+  sortComments,
+  setSortComments,
 }) {
   const voteCounterColour = (count) => {
     if (count > 0) {
@@ -21,12 +23,34 @@ export default function CommentCard({
   };
 
   const [userUrl, setUserUrl] = useState({});
+  const { user } = useContext(UserContext);
+  const [buttonDisable, setButtonDisable] = useState(false);
+
+  const canDelete = user.username === author;
 
   useEffect(() => {
     getUserByUsername(author).then((res) => {
       setUserUrl(res.avatar_url);
     });
   }, []);
+
+  const deleteComment = (comment_id) => {
+    if (window.confirm("Are you sure you want to delete this comment?")) {
+      setButtonDisable("true");
+      deleteCommentById(comment_id).then((res) => {
+        console.log(res);
+        let newCommentsList = sortComments.map((comment) => {
+          if (comment_id === comment.comment_id) {
+            comment.body = "This message has been deleted.";
+            return comment;
+          } else {
+            return comment;
+          }
+        });
+        setSortComments(newCommentsList);
+      });
+    }
+  };
 
   return (
     <div key={comment_id} className="comment-card">
@@ -38,10 +62,23 @@ export default function CommentCard({
         <div className="comment-content">
           <div className="comment-author">{author}</div>
           <div className="comment-date">{formatedDate}</div>
-          <div></div>
+
           <p className="comment-vote-count" id={voteCounterColour(votes)}>
             {votes}
           </p>
+
+          {canDelete && (
+            <div className="comment-delete">
+              <button
+                onClick={() => {
+                  deleteComment(comment_id);
+                }}
+                disabled={buttonDisable}
+              >
+                Delete
+              </button>
+            </div>
+          )}
         </div>
         {<div className="comment-text">{body}</div>}
       </div>
