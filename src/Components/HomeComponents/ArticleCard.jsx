@@ -21,6 +21,32 @@ export default function ArticleCard({
     setIsHovering(false);
   };
 
+  if (isHovering) {
+    return (
+      <article
+        className="article-card" // may have to make different card classes
+        id={`card-${article_id}`}
+      >
+        <ul>
+          <li key={`article-${article_id}`}>
+            <div>
+              <Link className="article-card-link" to={`/Article/${article_id}`}>
+                <h4 className="card-title">{title}</h4>
+                <div
+                  onMouseOver={handleMouseOver}
+                  onMouseOut={handleMouseOut}
+                  className="article-preview"
+                >
+                  <div className="article-preview-body">{body}</div>
+                </div>
+              </Link>
+            </div>
+          </li>
+        </ul>
+      </article>
+    );
+  }
+
   return (
     <article
       className="article-card" // may have to make different card classes
@@ -29,28 +55,22 @@ export default function ArticleCard({
       <ul>
         <li key={`article-${article_id}`}>
           <div>
-            <Link to={`/Article/${article_id}`}>
-              <div className="article-link">{title}</div>
+            <Link className="article-card-link" to={`/Article/${article_id}`}>
+              <h4 className="card-title">{title}</h4>
+              <p className="card-author">{author}</p>
+              <p className="card-topic">{topic}</p>
+              <div
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+                className="article-preview-button"
+              >
+                Preview article.
+              </div>
+              <h6>{formated_date}</h6>
+              <h6>Comment count: {comment_count}</h6>
+              <h6>Article vote: {votes}</h6>
             </Link>
           </div>
-          <h4 className="card-title">{title}</h4>
-          <p className="card-author">{author}</p>
-          <p className="card-topic">{topic}</p>
-          <div
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-            className="article-preview-button"
-          >
-            Preview article.
-          </div>
-          {isHovering && (
-            <div className="article-preview">
-              <p>{body}</p>
-            </div>
-          )}
-          <h6>{formated_date}</h6>
-          <h6>Comment count: {comment_count}</h6>
-          <h6>Article vote: {votes}</h6>
         </li>
       </ul>
     </article>

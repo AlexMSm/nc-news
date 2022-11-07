@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&family=Manrope:wght@200;800&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root {
+  background-color: #007cc7;
+  primary-colour: #203647;
+  font-family: "Changa", sans-serif;
+  font-family: "Manrope", sans-serif;
+  font-family: "Quattrocento Sans", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: white;
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+}
+
+button {
+  font-family: var(--font-family);
+}
+
+/* ::-webkit-scrollbar {
+  background-color: transparent; 
+  width: 0.2rem;
+} */
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: var(--primary-color);
+}

@@ -26,22 +26,14 @@ export default function TopicsBar() {
 
   if (error) {
     return (
-      <div>
-        <div className="sort-button">
-          <SortButtons />
-        </div>
-        <div className="topics-bar">
-          <h3>Topics unable to load.</h3>
-        </div>
+      <div className="topics-bar-error">
+        <h3>Topics unable to load.</h3>
       </div>
     );
   }
 
   return (
     <div>
-      <div className="sort-button">
-        <SortButtons />
-      </div>
       <div className="topics-bar">
         {topics.map(({ slug, description }) => {
           return (

@@ -16,13 +16,43 @@ ul {
 .article-card {
   border: solid 1px black;
   margin: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
   background-color: rgb(191, 212, 150);
   list-style-type: none;
   border-radius: 10px;
   height: 85%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* .article-card-link {
+  text-decoration: none;
+
+} */
+
+.article-card-link {
+  text-decoration: none;
+  font-size: 0.6rem;
 }
 
+.article-preview {
+  border: 0.5px solid blue;
+  width: 80%;
+  text-decoration: none;
+}
+.article-preview-button {
+  height: 10px;
+  overflow: auto;
+  border: 1px solid black;
+  width: 20%;
+}
+.article-preview-body {
+  height: 50%;
+  overflow: auto;
+  border: 1px solid black;
+  align-self: center;
+  height: 8vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: crimson;
+}
 .article-card > h6 {
   margin: 0px;
   padding: 0px;
@@ -56,15 +86,6 @@ div.article-container {
 .card-topic {
   display: flex;
   vertical-align: middle;
-}
-
-.article-preview-button {
-  border: solid black 1px;
-}
-.article_preview {
-  height: 10px;
-  overflow: auto;
-  border: 1px solid black;
 }
 
 .profile-button {
