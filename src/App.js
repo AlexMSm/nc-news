@@ -1,5 +1,6 @@
 import "./App.css";
 import "./cssStyling/Home.css";
+import "./cssStyling/NavBar.css";
 import "./cssStyling/HeaderBar.css";
 import "./cssStyling/TopicsBar.css";
 import "./cssStyling/Article.css";
@@ -10,6 +11,7 @@ import { UserContext } from "./Context/UserContext";
 import { ArticleSOContext } from "./Context/ArticleSOContext";
 
 import Base from "./Components/Base";
+import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
 import TopicPage from "./Components/TopicPage";
 import Article from "./Components/Article";
@@ -33,13 +35,14 @@ function App() {
       <UserContext.Provider value={{ user, setUser }}>
         <ArticleSOContext.Provider value={{ sort, setSort, order, setOrder }}>
           <div className="App">
+            <NavBar />
             <Base />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Topics/:topic" element={<TopicPage />} />
               <Route path="/Article/:article_id" element={<Article />} />
               <Route path="/Comments/:article_id" element={<CommentsPage />} />
-              <Route path="/Profile/butter_bridge" element={<ProfilePage />} />
+              <Route path="/Profile/:username" element={<ProfilePage />} />
               <Route path="/*" element={<ErrorPage />} />
             </Routes>
           </div>

@@ -23,6 +23,7 @@ export function getArticleById(article_id) {
   return ncNewsApi.get(`/articles/${article_id}`).then((res) => {
     return res.data;
   });
+  a;
 }
 
 export function getTopics() {

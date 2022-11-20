@@ -16,7 +16,7 @@ h6 {
 
 input.like-btn {
   color: none;
-  width: 4pc;
+  width: 4vw;
   margin: 0;
 }
 input.dislike-btn {
@@ -53,4 +53,12 @@ input.dislike-btn {
   padding: 0;
   width: 25%;
   border-radius: 10px;
+}
+
+.like-btn {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
 }
