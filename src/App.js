@@ -10,10 +10,9 @@ import { useState } from "react";
 import { UserContext } from "./Context/UserContext";
 import { ArticleSOContext } from "./Context/ArticleSOContext";
 
-import Base from "./Components/Base";
 import NavBar from "./Components/NavBar";
-import Home from "./Components/Home";
-import TopicPage from "./Components/TopicPage";
+import Home from "./Components/PrimaryComponents/Home";
+import TopicPage from "./Components/PrimaryComponents/TopicPage";
 import Article from "./Components/Article";
 import CommentsPage from "./Components/CommentsPage";
 import ProfilePage from "./Components/ProfilePage";
@@ -36,7 +35,6 @@ function App() {
         <ArticleSOContext.Provider value={{ sort, setSort, order, setOrder }}>
           <div className="App">
             <NavBar />
-            <Base />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Topics/:topic" element={<TopicPage />} />

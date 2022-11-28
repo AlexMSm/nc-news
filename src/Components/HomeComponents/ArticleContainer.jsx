@@ -62,9 +62,6 @@ export default function ArticleContainer() {
 
   return (
     <div className="outer-article-container">
-      <div className="sort-button">
-        <SortButtons />
-      </div>
       <div className="article-container">
         {articles.map(
           ({

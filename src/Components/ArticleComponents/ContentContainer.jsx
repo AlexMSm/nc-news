@@ -1,4 +1,4 @@
-import ArticleVoteButton from "../ReusedButtons.jsx/ArticleVoteButton";
+import ArticleVoteButton from "../ReusedButtons/ArticleVoteButton";
 
 export default function ContentContainer({ article }) {
   const {

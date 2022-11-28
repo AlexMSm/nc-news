@@ -32,6 +32,7 @@ export default function NavBar() {
           <li>
             <a href="#contact">Contact</a>
           </li>
+          <li></li>
         </ul>
         <div className="login-btn">
           <button>Login/Registration</button>
@@ -66,7 +67,7 @@ const Nav = styled.nav`
     ul {
       display: flex;
       list-style-type: none;
-      gap: 2rem;
+      gap: 1rem;
       li {
         padding: 0.5rem 1rem;
         transition: 0.3s ease;
@@ -90,7 +91,7 @@ const Nav = styled.nav`
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      gap: 1rem;
       button {
         border: 1px solid orange;
         background-color: transparent;
@@ -100,7 +101,7 @@ const Nav = styled.nav`
         /*      display: flex;
         justify-content: center;
         align-items: center;
-        gap: 0.7rem; */
+        gap: 0.5rem; 
         font-weight: bold;
         svg {
           font-weight: bold;

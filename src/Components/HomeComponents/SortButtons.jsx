@@ -29,8 +29,10 @@ export default function SortButtons(props) {
   };
   return (
     <div className="dropdown">
-      <div>
-        <button onClick={handleOpenSort}>{sort}</button>
+      <div className="sort-div">
+        <button className="sort-button" onClick={handleOpenSort}>
+          {sort}
+        </button>
         {openSort ? (
           <div>
             <ul className="sort-by-menu">
@@ -66,7 +68,9 @@ export default function SortButtons(props) {
         ) : null}
       </div>
       <div>
-        <button onClick={handleOpenOrder}>{order}</button>
+        <button className="sort-button" onClick={handleOpenOrder}>
+          {order}
+        </button>
         {openOrder ? (
           <div>
             <ul className="sort-by-menu">
@@ -93,6 +97,7 @@ export default function SortButtons(props) {
         ) : null}
       </div>
       <button
+        className="clear-button"
         onClick={() => {
           setSort("Sort");
           setOrder("Order");

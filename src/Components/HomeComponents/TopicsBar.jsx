@@ -18,7 +18,7 @@ export default function TopicsBar() {
       .catch(({ err }) => {
         console.dir(err);
         setTopicsLoading(false);
-        setError(err.msg);
+        setError(err);
       });
   }, []);
 
@@ -33,7 +33,11 @@ export default function TopicsBar() {
   }
 
   return (
-    <div>
+    <div className="filter-bar">
+      <div className="sort-buttons">
+        <SortButtons />
+      </div>
+      <h3>Topics</h3>
       <div className="topics-bar">
         {topics.map(({ slug, description }) => {
           return (
