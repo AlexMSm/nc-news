@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 export default function BSArticleCard({
@@ -40,10 +38,14 @@ export default function BSArticleCard({
 
   return (
     <Link className="article-card-link" to={`/Article/${article_id}`}>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, backgroundColor: "transparent" }}>
         <div className="article-card">
           <div className="article-card-image">
-            <CardMedia component="img" image={image} alt="green iguana" />
+            <CardMedia
+              component="img"
+              image={image}
+              alt="randomly generated image"
+            />
           </div>
           <CardContent>
             <Typography gutterBottom variant="h6" component="div">
@@ -59,7 +61,7 @@ export default function BSArticleCard({
                 {formated_date}
               </Typography>
               <Typography variant="body2" color="blue">
-                Vote {votes}
+                Votes: {votes}
               </Typography>
               <Typography variant="body2" color="blue">
                 {author}

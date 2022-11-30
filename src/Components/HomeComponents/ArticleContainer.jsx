@@ -76,7 +76,6 @@ export default function ArticleContainer() {
         }) => {
           return (
             <BSArticleCard
-              className="card-column"
               key={`${article_id}_Card`}
               article_id={article_id}
               title={title}
