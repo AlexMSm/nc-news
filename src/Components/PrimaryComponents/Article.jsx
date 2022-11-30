@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getArticleById } from "../api";
-import ContentContainer from "./ArticleComponents/ContentContainer";
-import CommentsContainer from "./ArticleComponents/CommentContainer";
-import TopicsBar from "./HomeComponents/TopicsBar";
+import { getArticleById } from "../../api";
+import ContentContainer from "../ArticleComponents/ContentContainer";
+import CommentsContainer from "../ArticleComponents/CommentContainer";
+import TopicsBar from "../HomeComponents/TopicsBar";
+import SearchBar from "../HomeComponents/SearchBar";
 
 export default function Article() {
   const [article, setArticle] = useState([]);
@@ -38,6 +39,11 @@ export default function Article() {
 
   return (
     <div>
+      <img
+        className="article-image-main"
+        src="https://picsum.photos/800/300"
+        alt="car"
+      />
       <ContentContainer article={article} />
       <CommentsContainer article_id={article_id} />
       <TopicsBar />

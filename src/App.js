@@ -5,15 +5,16 @@ import "./cssStyling/HeaderBar.css";
 import "./cssStyling/TopicsBar.css";
 import "./cssStyling/Article.css";
 import "./cssStyling/Comments.css";
+import "./cssStyling/SortBar.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "./Context/UserContext";
 import { ArticleSOContext } from "./Context/ArticleSOContext";
 
-import NavBar from "./Components/NavBar";
+import NavBar from "./Components/PrimaryComponents/NavBar";
 import Home from "./Components/PrimaryComponents/Home";
 import TopicPage from "./Components/PrimaryComponents/TopicPage";
-import Article from "./Components/Article";
+import Article from "./Components/PrimaryComponents/Article";
 import CommentsPage from "./Components/CommentsPage";
 import ProfilePage from "./Components/ProfilePage";
 import ErrorPage from "./Components/ErrorPage";

@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { getArticles } from "../../api";
 import { useParams, Link } from "react-router-dom";
 import { ArticleSOContext } from "../../Context/ArticleSOContext";
-import SortButtons from "./SortButtons";
+import BSArticleCard from "./BSArticleCard";
 
 export default function ArticleContainer() {
   const [articles, setArticles] = useState([]);
@@ -61,38 +61,36 @@ export default function ArticleContainer() {
   }
 
   return (
-    <div className="outer-article-container">
-      <div className="article-container">
-        {articles.map(
-          ({
-            article_id,
-            title,
-            author,
-            body,
-            comment_count,
-            created_at,
-            formated_date,
-            topic,
-            votes,
-          }) => {
-            return (
-              <ArticleCard
-                className="card-column"
-                key={`${article_id}_Card`}
-                article_id={article_id}
-                title={title}
-                author={author}
-                body={body}
-                comment_count={comment_count}
-                created_at={created_at}
-                formated_date={formated_date}
-                topic={topic}
-                votes={votes}
-              />
-            );
-          }
-        )}
-      </div>
+    <div className="article-container">
+      {articles.map(
+        ({
+          article_id,
+          title,
+          author,
+          body,
+          comment_count,
+          created_at,
+          formated_date,
+          topic,
+          votes,
+        }) => {
+          return (
+            <BSArticleCard
+              className="card-column"
+              key={`${article_id}_Card`}
+              article_id={article_id}
+              title={title}
+              author={author}
+              body={body}
+              comment_count={comment_count}
+              created_at={created_at}
+              formated_date={formated_date}
+              topic={topic}
+              votes={votes}
+            />
+          );
+        }
+      )}
     </div>
   );
 }

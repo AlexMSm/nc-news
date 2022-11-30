@@ -1,15 +1,24 @@
 import { useState, useEffect } from "react";
 import { patchVoteById } from "../../api";
+import { Button } from "@mui/material";
+import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
+import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
+import ThumbUpSharpIcon from "@mui/icons-material/ThumbUpSharp";
+import ThumbDownSharpIcon from "@mui/icons-material/ThumbDownSharp";
 
 export default function ArticleVoteButton({ article_id, votes }) {
   const [voteCount, setVoteCount] = useState(votes);
   const [vote, setVote] = useState(0);
   const [likeId, setLikeId] = useState("neutral");
   const [dislikeId, setDislikeId] = useState("neutral");
+  const [likeIcon, setLikeIcon] = useState(<ThumbUpOutlinedIcon />);
+  const [dislikeIcon, setDislikeIcon] = useState(<ThumbDownOutlinedIcon />);
 
   const handleLikeClick = (event) => {
     if (likeId === "neutral") {
       setLikeId("liked");
+      setLikeIcon(<ThumbUpSharpIcon />);
+      setDislikeIcon(<ThumbDownOutlinedIcon />);
       if (dislikeId === "disliked") {
         setVote(2);
       } else {
@@ -19,12 +28,15 @@ export default function ArticleVoteButton({ article_id, votes }) {
     } else if (likeId === "liked") {
       setLikeId("neutral");
       setVote(-1);
+      setLikeIcon(<ThumbUpOutlinedIcon />);
     }
   };
 
   const handleDislikeClick = (event) => {
     if (dislikeId === "neutral") {
       setDislikeId("disliked");
+      setDislikeIcon(<ThumbDownSharpIcon />);
+      setLikeIcon(<ThumbUpOutlinedIcon />);
       if (likeId === "liked") {
         setVote(-2);
       } else {
@@ -34,6 +46,7 @@ export default function ArticleVoteButton({ article_id, votes }) {
     } else if (dislikeId === "disliked") {
       setDislikeId("neutral");
       setVote(1);
+      setDislikeIcon(<ThumbDownOutlinedIcon />);
     }
   };
 
@@ -47,22 +60,34 @@ export default function ArticleVoteButton({ article_id, votes }) {
 
   return (
     <div className="article-vote-button-container">
-      <input
-        type="button"
+      <Button
+        startIcon={likeIcon}
         className="like-btn"
         id={likeId}
         onClick={handleLikeClick}
-        value="Like"
-      ></input>
-      <input
-        type="button"
+      >
+        Like
+      </Button>
+      <Button
+        startIcon={dislikeIcon}
         className="dislike-btn"
         id={dislikeId}
         onClick={handleDislikeClick}
-        value="Dislike"
-      ></input>
-
-      <p className="article-vote-count">{voteCount}</p>
+      >
+        Dislike
+      </Button>
+      <div
+        className="article-vote-count"
+        id={
+          voteCount === 0
+            ? "vote-count-neutral"
+            : voteCount > 0
+            ? "vote-count-positive"
+            : "vote-count-negative"
+        }
+      >
+        <p>{voteCount}</p>
+      </div>
     </div>
   );
 }

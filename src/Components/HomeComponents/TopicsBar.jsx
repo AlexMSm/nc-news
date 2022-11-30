@@ -33,22 +33,16 @@ export default function TopicsBar() {
   }
 
   return (
-    <div className="filter-bar">
-      <div className="sort-buttons">
-        <SortButtons />
-      </div>
-      <h3>Topics</h3>
-      <div className="topics-bar">
-        {topics.map(({ slug, description }) => {
-          return (
-            <TopicCard
-              key={`${slug}_Card`}
-              topic={slug}
-              description={description}
-            />
-          );
-        })}
-      </div>
+    <div className="topics-bar">
+      {topics.map(({ slug, description }) => {
+        return (
+          <TopicCard
+            key={`${slug}_Card`}
+            topic={slug}
+            description={description}
+          />
+        );
+      })}
     </div>
   );
 }
