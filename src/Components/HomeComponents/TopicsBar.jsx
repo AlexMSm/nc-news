@@ -18,7 +18,7 @@ export default function TopicsBar() {
       .catch(({ err }) => {
         console.dir(err);
         setTopicsLoading(false);
-        setError(err.msg);
+        setError(err);
       });
   }, []);
 
@@ -33,18 +33,16 @@ export default function TopicsBar() {
   }
 
   return (
-    <div>
-      <div className="topics-bar">
-        {topics.map(({ slug, description }) => {
-          return (
-            <TopicCard
-              key={`${slug}_Card`}
-              topic={slug}
-              description={description}
-            />
-          );
-        })}
-      </div>
+    <div className="topics-bar">
+      {topics.map(({ slug, description }) => {
+        return (
+          <TopicCard
+            key={`${slug}_Card`}
+            topic={slug}
+            description={description}
+          />
+        );
+      })}
     </div>
   );
 }

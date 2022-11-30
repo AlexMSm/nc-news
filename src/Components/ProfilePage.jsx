@@ -1,3 +1,3 @@
 export default function ProfilePage() {
-  return <h2>Profile Page</h2>;
+  return <h2>Welcome to your profile page</h2>;
 }

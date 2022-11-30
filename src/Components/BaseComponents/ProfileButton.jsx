@@ -6,7 +6,7 @@ export default function ProfileButton() {
   const { user, setUser } = useContext(UserContext);
 
   return (
-    <Link to={`/Profile`}>
+    <Link to={`/Profile/${user.username}`}>
       <div className="profile-button">
         <img
           id="profileImage"

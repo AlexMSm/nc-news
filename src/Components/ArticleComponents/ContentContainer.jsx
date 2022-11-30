@@ -1,4 +1,4 @@
-import ArticleVoteButton from "../ReusedButtons.jsx/ArticleVoteButton";
+import ArticleVoteButton from "../ReusedButtons/ArticleVoteButton";
 
 export default function ContentContainer({ article }) {
   const {
@@ -17,12 +17,20 @@ export default function ContentContainer({ article }) {
   return (
     <div className="content-container">
       <article>
-        <span>
-          <h6>{author}</h6>
+        <div className="article-meta">
+          <h6>Author: {author}</h6>
           <time>{formatedDate}</time>
-        </span>
-        <h3>{title}</h3>
-        <p>{body}</p>
+        </div>
+        <div className="article-title-container">
+          <h3 className="article-title">{title}</h3>
+          <img
+            className="article-image-title"
+            src="https://picsum.photos/200"
+            alt="car"
+          />
+        </div>
+
+        <p className="article-text">{body}</p>
       </article>
       <ArticleVoteButton votes={votes} article_id={article_id} />
     </div>

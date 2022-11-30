@@ -1,37 +1,74 @@
+.article-image-main {
+  width: 90%;
+  margin: 5%;
+  border-radius: 5px;
+  align-content: center;
+}
+
 .content-container {
-  border: 1px solid black;
+  background-color: rgb(232, 132, 31);
   height: 50%;
   padding: 10px;
+  margin: 2vh;
+  border-radius: 20px;
 }
-.content-container > span > time,
-h6 {
-  display: inline;
-  margin: 10%;
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-title-container {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  margin-top: 2vh;
+}
+
+.article-title {
+  font-size: 5vh;
+  margin-left: 1vw;
+}
+
+.article-image-title {
+  width: 90%;
+  border-radius: 5px;
+  align-content: center;
+}
+
+.article-text {
+  font-size: 2vh;
+  margin: 2vh;
+  color: blue;
 }
 
 .like-btn,
 .dislike-btn {
   border-radius: 10px;
+  max-width: 80px;
 }
 
-input.like-btn {
-  color: none;
-  width: 4pc;
+.like-btn {
+  background-color: orange;
+  width: 0vw;
   margin: 0;
 }
-input.dislike-btn {
+.dislike-btn {
   color: none;
   width: 4pc;
   margin: 0;
 }
 #liked {
-  background-color: olivedrab;
+  background-color: rgb(174, 235, 50);
 }
 #disliked {
-  background-color: crimson;
+  background-color: rgb(254, 57, 96);
 }
 #neutral {
   background-color: bisque;
+}
+
+.article-vote-button-container > button {
+  width: 15vw;
+  color: black;
 }
 
 .content-container > .article-vote-button-container {
@@ -43,14 +80,26 @@ input.dislike-btn {
 }
 
 .article-vote-count {
-  display: inline;
-  font-style: oblique;
+  display: flex;
   font-stretch: wider;
   font-size: 3vw;
-  text-align: center;
+  justify-content: center;
   border: 1px black solid;
   margin: 0;
   padding: 0;
-  width: 25%;
-  border-radius: 10px;
+  width: 5vw;
+  border-radius: 20px;
+}
+.article-vote-count > p {
+  margin: 1vh;
+}
+#vote-count-neutral {
+  color: black;
+  background-color: bisque;
+}
+#vote-count-positive {
+  color: rgb(174, 235, 50);
+}
+#vote-count-negative {
+  color: rgb(254, 57, 96);
 }

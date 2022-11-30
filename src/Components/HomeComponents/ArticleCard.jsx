@@ -12,40 +12,25 @@ export default function ArticleCard({
   formated_date,
   votes,
 }) {
-  const [isHovering, setIsHovering] = useState(false);
+  const [subtext, setSubtext] = useState("");
+  const [image, setImage] = useState("");
+  const characters =
+    "       ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789      ";
 
-  const handleMouseOver = () => {
-    setIsHovering(true);
-  };
-  const handleMouseOut = () => {
-    setIsHovering(false);
-  };
-
-  if (isHovering) {
-    return (
-      <article
-        className="article-card" // may have to make different card classes
-        id={`card-${article_id}`}
-      >
-        <ul>
-          <li key={`article-${article_id}`}>
-            <div>
-              <Link className="article-card-link" to={`/Article/${article_id}`}>
-                <h4 className="card-title">{title}</h4>
-                <div
-                  onMouseOver={handleMouseOver}
-                  onMouseOut={handleMouseOut}
-                  className="article-preview"
-                >
-                  <div className="article-preview-body">{body}</div>
-                </div>
-              </Link>
-            </div>
-          </li>
-        </ul>
-      </article>
-    );
+  function generateString(length) {
+    let result = " ";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    let num = 100 + Math.floor(Math.random() * 150);
+    setSubtext(result);
+    setImage(`https://mdbootstrap.com/img/new/standard/nature/${num}.webp`);
   }
+
+  useEffect(() => {
+    generateString(100);
+  }, []);
 
   return (
     <article
@@ -59,13 +44,6 @@ export default function ArticleCard({
               <h4 className="card-title">{title}</h4>
               <p className="card-author">{author}</p>
               <p className="card-topic">{topic}</p>
-              <div
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-                className="article-preview-button"
-              >
-                Preview article.
-              </div>
               <h6>{formated_date}</h6>
               <h6>Comment count: {comment_count}</h6>
               <h6>Article vote: {votes}</h6>
