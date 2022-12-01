@@ -1,9 +1,11 @@
 .article-image-main {
-  width: 80%;
-  margin: 5% 10% 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: 5% 15% 2%;
   border-radius: 5px;
   align-self: center;
-  max-width: 800px;
 }
 
 .content-container {
@@ -29,7 +31,8 @@ time {
 
 .article-title-container {
   display: flex;
-  margin-top: 2vh;
+  margin: 2vh 2vw;
+  justify-content: space-between;
   align-content: center;
 }
 
@@ -43,6 +46,7 @@ time {
 
 .article-image-title {
   width: 90%;
+
   border-radius: 5px;
   align-content: center;
   max-width: 25%;
