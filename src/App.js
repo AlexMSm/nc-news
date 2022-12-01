@@ -18,6 +18,8 @@ import Article from "./Components/PrimaryComponents/Article";
 import CommentsPage from "./Components/CommentsPage";
 import ProfilePage from "./Components/ProfilePage";
 import ErrorPage from "./Components/ErrorPage";
+import DetailsPage from "./Components/PrimaryComponents/DetailsPage";
+import ContactPage from "./Components/PrimaryComponents/DetailsPage copy";
 
 function App() {
   const [user, setUser] = useState({
@@ -42,6 +44,8 @@ function App() {
               <Route path="/Article/:article_id" element={<Article />} />
               <Route path="/Comments/:article_id" element={<CommentsPage />} />
               <Route path="/Profile/:username" element={<ProfilePage />} />
+              <Route path="/Details" element={<DetailsPage />} />
+              <Route path="/Contact" element={<ContactPage />} />
               <Route path="/*" element={<ErrorPage />} />
             </Routes>
           </div>

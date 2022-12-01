@@ -106,7 +106,6 @@ time {
 
 .article-topics-bar {
   border-top: orange solid 1px;
-  background-color: aqua;
 }
 
 @media screen and (min-width: 280px) and (max-width: 700px) {

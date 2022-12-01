@@ -34,11 +34,3 @@ h1 {
     font-size: xx-large;
   }
 }
-
-.profile-button {
-  border: #3c403d;
-  color: #39603d;
-  padding: 10px;
-  background-color: #daded4;
-  border-radius: 10px;
-}
