@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <div className="home">
       <div className="title-container">
-        <p className="para-container">Welcome to </p>
+        <p className="para-container">Ey up there, welcome to </p>
         <h1>
-          <span className="highlight">news by NC</span>
+          <span className="highlight">NC news</span>
         </h1>
         <div className="para-container">
           <p className="home-para">

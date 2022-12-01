@@ -27,8 +27,9 @@
 
 .sort-by-menu {
   position: absolute;
-  margin: 5px 0;
+  margin: 5px 0 5px;
   width: fit-content;
+  z-index: 1;
 }
 .sort-bar > li {
   align-content: center;
@@ -40,7 +41,7 @@
 }
 
 .sort-option > button {
-  background-color: rgb(187, 185, 96);
+  background-color: rgb(247, 244, 50);
   width: 23vw;
 }
 

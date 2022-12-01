@@ -47,24 +47,27 @@ export default function BSArticleCard({
               alt="randomly generated image"
             />
           </div>
-          <CardContent>
-            <Typography gutterBottom variant="h6" component="div">
-              {title}
-            </Typography>
+          <CardContent sx={{ paddingBottom: 0 }}>
+            <div className="article-card-title">
+              <Typography gutterBottom variant="h6" component="div">
+                {title}
+              </Typography>
+            </div>
+            <div className="article-card-meta">
+              <p> {formated_date}</p>
+              <p>{author}</p>
+            </div>
             <div className="article-card-subtext">
               <Typography variant="body2" color="text.secondary">
                 {subtext}
               </Typography>
             </div>
-            <div className="article-card-meta">
-              <Typography variant="body1" color="blue">
-                {formated_date}
-              </Typography>
+            <div className="article-card-counts">
               <Typography variant="body2" color="blue">
                 Votes: {votes}
               </Typography>
               <Typography variant="body2" color="blue">
-                {author}
+                Comments: {comment_count}
               </Typography>
             </div>
             <div className="article-card-topic">

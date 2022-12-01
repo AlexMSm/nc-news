@@ -9,6 +9,8 @@ export default function CommentCard({
   comment_id,
   formatedDate,
   votes,
+  count,
+  setCount,
   sortComments,
   setSortComments,
 }) {
@@ -40,7 +42,7 @@ export default function CommentCard({
       deleteCommentById(comment_id).then((res) => {
         let newCommentsList = sortComments.map((comment) => {
           if (comment_id === comment.comment_id) {
-            comment.body = "This message has been deleted.";
+            comment.body = "MESSAGE DELETED";
             return comment;
           } else {
             return comment;
@@ -53,19 +55,16 @@ export default function CommentCard({
 
   return (
     <div key={comment_id} className="comment-card">
-      <div className="comment-image-container">
-        <img src={userUrl} />
-      </div>
-
       <div className="comment-right-part">
         <div className="comment-content">
-          <div className="comment-author">{author}</div>
+          <div className="comment-image-container">
+            <img src={userUrl} />
+            <div className="comment-author">{author}</div>
+          </div>
           <div className="comment-date">{formatedDate}</div>
-
-          <p className="comment-vote-count" id={voteCounterColour(votes)}>
-            {votes}
-          </p>
-
+        </div>
+        {<div className="comment-text">{body}</div>}
+        <div className="comment-metadata">
           {canDelete && (
             <div className="comment-delete">
               <button
@@ -78,20 +77,11 @@ export default function CommentCard({
               </button>
             </div>
           )}
+          <p className="comment-vote-count" id={voteCounterColour(votes)}>
+            {votes}
+          </p>
         </div>
-        {<div className="comment-text">{body}</div>}
       </div>
     </div>
   );
-}
-
-{
-  /* <div className="article-comment-card">
-<span className="comment-span">
-  <p>{author}</p> <p>{formatedDate}</p>{" "}
-
-</span>
-<p>{body}</p>
-</div>
-); */
 }

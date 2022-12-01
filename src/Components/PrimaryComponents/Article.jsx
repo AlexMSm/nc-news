@@ -45,8 +45,11 @@ export default function Article() {
         alt="car"
       />
       <ContentContainer article={article} />
-      <CommentsContainer article_id={article_id} />
-      <TopicsBar />
+      <CommentsContainer
+        article_id={article_id}
+        comment_count={article.comment_count}
+      />
+      <TopicsBar className="article-topics-bar" />
     </div>
   );
 }

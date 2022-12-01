@@ -1,12 +1,13 @@
 .article-image-main {
-  width: 90%;
-  margin: 5%;
+  width: 80%;
+  margin: 5% 10% 2%;
   border-radius: 5px;
-  align-content: center;
+  align-self: center;
+  max-width: 800px;
 }
 
 .content-container {
-  background-color: rgb(232, 132, 31);
+  background-color: whitesmoke;
   height: 50%;
   padding: 10px;
   margin: 2vh;
@@ -16,58 +17,55 @@
   display: flex;
   justify-content: space-between;
 }
+.article-meta > h6,
+time {
+  display: flex;
+  background-color: rgb(223, 159, 75) 0.9;
+  border-radius: 10px;
+  padding: 0.8vw;
+  align-items: center;
+  color: rgb(26, 58, 112);
+}
 
 .article-title-container {
-  display: grid;
-  grid-template-columns: 70% 30%;
+  display: flex;
   margin-top: 2vh;
+  align-content: center;
 }
 
 .article-title {
+  display: flex;
   font-size: 5vh;
   margin-left: 1vw;
+  align-items: center;
+  color: rgb(174, 102, 12);
 }
 
 .article-image-title {
   width: 90%;
   border-radius: 5px;
   align-content: center;
+  max-width: 25%;
 }
 
 .article-text {
   font-size: 2vh;
   margin: 2vh;
-  color: blue;
+  color: rgb(26, 58, 112);
 }
 
-.like-btn,
-.dislike-btn {
-  border-radius: 10px;
-  max-width: 80px;
-}
-
-.like-btn {
-  background-color: orange;
-  width: 0vw;
-  margin: 0;
-}
-.dislike-btn {
-  color: none;
-  width: 4pc;
-  margin: 0;
-}
 #liked {
-  background-color: rgb(174, 235, 50);
+  background-color: rgb(130, 186, 18);
 }
 #disliked {
-  background-color: rgb(254, 57, 96);
+  background-color: rgb(174, 4, 38);
 }
 #neutral {
-  background-color: bisque;
+  background-color: rgb(229, 218, 204);
 }
 
 .article-vote-button-container > button {
-  width: 15vw;
+  width: 8vw;
   color: black;
 }
 
@@ -77,6 +75,7 @@
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+  align-items: center;
 }
 
 .article-vote-count {
@@ -84,22 +83,45 @@
   font-stretch: wider;
   font-size: 3vw;
   justify-content: center;
-  border: 1px black solid;
   margin: 0;
   padding: 0;
   width: 5vw;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 .article-vote-count > p {
   margin: 1vh;
+  font-size: 3vh;
 }
 #vote-count-neutral {
   color: black;
-  background-color: bisque;
 }
 #vote-count-positive {
-  color: rgb(174, 235, 50);
+  color: rgb(130, 186, 18);
+  font-weight: bolder;
 }
 #vote-count-negative {
-  color: rgb(254, 57, 96);
+  color: rgb(174, 4, 38);
+  font-weight: bolder;
+}
+
+.article-topics-bar {
+  border-top: orange solid 1px;
+  background-color: aqua;
+}
+
+@media screen and (min-width: 280px) and (max-width: 700px) {
+  .article-image-main {
+    width: 80%;
+    margin: 5% 10% 2%;
+    border-radius: 5px;
+    align-self: center;
+  }
+  .content-container {
+    background-color: whitesmoke;
+    width: 90%;
+    margin: 0 5%;
+    height: 50%;
+    padding: 10px;
+    border-radius: 20px;
+  }
 }

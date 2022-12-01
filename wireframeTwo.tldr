@@ -266,8 +266,8 @@
             "parentId": "page",
             "childIndex": 11,
             "point": [
-              134.88,
-              231.32
+              143.89,
+              233.06
             ],
             "rotation": 0,
             "text": "Paragraph section",
@@ -944,7 +944,7 @@
               "dash": "draw",
               "scale": 1
             },
-            "label": "topic",
+            "label": "topic bar",
             "labelPoint": [
               0.5,
               0.5

@@ -1,19 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import logo1 from "../../Images/logo1.png";
 import { BsToggleOn, BsToggleOff } from "react-icons/bs";
 import ProfileButton from "../BaseComponents/ProfileButton";
 import { Link } from "react-router-dom";
+import ncnewsmain from "../../Images/nc-news-main-trim.png";
+import ncemblem from "../../Images/nc-emblem.png";
+import ncnewsshort from "../../Images/nc-news-short.png";
 
 export default function NavBar() {
   const [navState, setNavState] = useState(false);
+  const [smallLogo, setSmallLogo] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      console.log("resized to: ", window.innerWidth, "x", window.innerHeight);
+      if (window.innerWidth < 1000) {
+        setSmallLogo(true);
+      } else if (smallLogo && window.innerWidth > 1000) {
+        setSmallLogo(false);
+      }
+    }
+    window.addEventListener("resize", handleResize);
+  });
+
   return (
     <Nav>
       <div className="brand">
-        <div className="logo">
-          <img src={logo1} alt="brand logo" />
+        <div className="branding">
+          <div className="emblem">
+            <img src={ncemblem} alt="brand emblem" />
+          </div>
+          <div className="logo">
+            <img src={smallLogo ? ncnewsshort : ncnewsmain} alt="brand logo" />
+          </div>
         </div>
-
         <div className="toggle">
           <div className="toggle-menu">Menu</div>
           {navState ? (
@@ -59,13 +80,27 @@ export default function NavBar() {
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  margin: 3rem 6rem;
+  margin: 1rem 2rem;
+  border-bottom: 1px darkorange solid;
   .brand {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    .logo {
-      img {
-        height: 5vh;
+    .branding {
+      display: flex;
+      align-items: center;
+      margin: 0 1vw;
+      margin-right: 4vw;
+      .logo {
+        img {
+          height: 7vh;
+        }
+      }
+      .emblem {
+        img {
+          height: 10vh;
+          margin-bottom: 10px;
+        }
       }
     }
     .toggle {
@@ -84,8 +119,10 @@ const Nav = styled.nav`
     width: 60%;
     ul {
       display: flex;
+      align-items: center;
       list-style-type: none;
-      gap: 4rem;
+      gap: 3rem;
+      width: 5rem;
       li {
         transition: 0.3s ease-in-out;
         &:first-of-type {
@@ -99,11 +136,11 @@ const Nav = styled.nav`
           padding: 0.7rem 1rem;
         }
         &:hover {
-          background-color: orange;
+          background-color: darkorange;
           border-radius: 0.3rem;
           color: white;
           a {
-            color: green;
+            color: white;
             font-type: bold;
           }
         }
@@ -147,15 +184,23 @@ const Nav = styled.nav`
       }
     }
   }
-  @media screen and (min-width: 280px) and (max-width: 1080px) {
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
     position: relative;
     margin: 0;
     .brand {
       padding: 2rem 1rem;
-      justify-content: center;
+      justify-content: space-between;
       width: 100%;
       z-index: 2;
       background-color: var(--background-color);
+      .branding {
+        .emblem {
+          display: none;
+        }
+        .logo {
+          display: flex;
+        }
+      }
       .toggle {
         position: absolute;
         right: 5vw;
@@ -168,12 +213,11 @@ const Nav = styled.nav`
     .links {
       position: absolute;
       background-color: black;
-      opacity: 09;
       z-index: 1;
-      opacity: 0.9;
+      opacity: 0.95;
       flex-direction: column;
-      margin: 15vh 25% 20% 25%;
-      width: 50%;
+      margin: 15vh 30% 20%;
+      width: 40%;
       padding: 5rem 0;
       border-radius: 20px;
       transition: 0.4s ease-in-out;

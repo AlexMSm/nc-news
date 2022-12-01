@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import { getCommentsByArticleById } from "../../api";
 import { postCommentToArticle } from "../../api";
 
-export default function CommentsContainer({ article_id }) {
+export default function CommentsContainer({ article_id, comment_count }) {
   const [comments, setComments] = useState([]);
+  const [count, setCount] = useState(comment_count);
   const [sortComments, setSortComments] = useState([]);
   const [commentsLoading, setCommentsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -56,14 +57,14 @@ export default function CommentsContainer({ article_id }) {
 
   return (
     <div className="comments">
-      <h3 className="comments-title">Comments</h3>
-
-      <div className="comment-form-title">Write comment</div>
-      <CommentForm
-        submitLabel="Post"
-        article_id={article_id}
-        postComment={postComment}
-      />
+      <div className="comment-form-title">
+        Leave a comment
+        <CommentForm
+          submitLabel="Post"
+          article_id={article_id}
+          postComment={postComment}
+        />
+      </div>
       <div className="article-comment-container">
         {sortComments.map(({ author, body, comment_id, created_at, votes }) => {
           let newDate = new Date(created_at);
@@ -76,6 +77,8 @@ export default function CommentsContainer({ article_id }) {
               comment_id={comment_id}
               formatedDate={formatedDate}
               votes={votes}
+              count={count}
+              setCount={setCount}
               sortComments={sortComments}
               setSortComments={setSortComments}
             />

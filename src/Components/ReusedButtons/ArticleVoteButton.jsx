@@ -65,17 +65,13 @@ export default function ArticleVoteButton({ article_id, votes }) {
         className="like-btn"
         id={likeId}
         onClick={handleLikeClick}
-      >
-        Like
-      </Button>
+      ></Button>
       <Button
         startIcon={dislikeIcon}
         className="dislike-btn"
         id={dislikeId}
         onClick={handleDislikeClick}
-      >
-        Dislike
-      </Button>
+      ></Button>
       <div
         className="article-vote-count"
         id={
