@@ -184,7 +184,20 @@ const Nav = styled.nav`
       }
     }
   }
-  @media screen and (min-width: 280px) and (max-width: 1000px) {
+  @media screen and (max-width: 550px) {
+    .branding {
+      display: flex;
+      align-items: center;
+      margin: 0 1vw;
+      margin-right: 4vw;
+      justify-content: space-between;
+      .emblem {
+        display: none;
+        align-content: center;
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1060px) {
     position: relative;
     margin: 0;
     .brand {
@@ -194,9 +207,6 @@ const Nav = styled.nav`
       z-index: 2;
       background-color: var(--background-color);
       .branding {
-        .emblem {
-          display: none;
-        }
         .logo {
           display: flex;
         }
