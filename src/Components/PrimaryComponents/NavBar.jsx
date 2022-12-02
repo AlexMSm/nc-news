@@ -15,9 +15,9 @@ export default function NavBar() {
   useEffect(() => {
     function handleResize() {
       console.log("resized to: ", window.innerWidth, "x", window.innerHeight);
-      if (window.innerWidth < 1000) {
+      if (window.innerWidth < 460) {
         setSmallLogo(true);
-      } else if (smallLogo && window.innerWidth > 1000) {
+      } else if (smallLogo && window.innerWidth > 460) {
         setSmallLogo(false);
       }
     }
