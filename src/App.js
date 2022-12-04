@@ -6,6 +6,7 @@ import "./cssStyling/TopicsBar.css";
 import "./cssStyling/Article.css";
 import "./cssStyling/Comments.css";
 import "./cssStyling/SortBar.css";
+import "./cssStyling/Profile.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "./Context/UserContext";

@@ -22,7 +22,9 @@
 
 .topic-card {
   border-radius: 10px;
-  background-color: bisque;
+  background-color: whitesmoke;
+  color: darkorange;
+  font-weight: bolder;
   border: 3px solid var(--primary-color);
   text-align: center;
   display: flex;
@@ -34,6 +36,7 @@
 }
 .topic-card:hover {
   background-color: orange;
+  color: #007cc7;
 }
 
 .topic-card-link {

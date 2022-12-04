@@ -11,7 +11,6 @@ export default function TopicPage() {
         <h2>{topic}</h2>
         <SearchBar />
       </div>
-
       <ArticleContainer topic={topic} />
     </div>
   );
