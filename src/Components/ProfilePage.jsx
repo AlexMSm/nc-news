@@ -26,7 +26,6 @@ export default function ProfilePage() {
           return article.author === user.username;
         });
         setArticles(userArticles);
-        console.log(userArticles);
         if (userArticles.length !== articleCount) {
           setArticleCount(userArticles.length);
         }
@@ -42,7 +41,6 @@ export default function ProfilePage() {
   }, [articleCount]);
 
   async function postNewArticle(trimmedTitle, trimmedText, trimmedTopic) {
-    console.log("onSubmit");
     let article = {
       body: trimmedText,
       title: trimmedTitle,
@@ -57,21 +55,17 @@ export default function ProfilePage() {
         })
         .includes(trimmedTopic)
     ) {
-      console.log("adding topic", topics, trimmedTopic);
       await postTopic({
         slug: trimmedTopic,
         description: `A new topic on ${trimmedTopic}`,
       });
     }
-    console.log("posting article");
+
     postArticle(article)
       .then(() => {
-        console.log(articleCount);
         setArticleCount((cur) => setArticleCount((cur += 1)));
-        console.log(articleCount);
       })
       .catch((err) => {
-        console.log(err);
         window.alert(
           `Article failed to post. Error status ${err.status}. ${err.response.data.msg}`
         );
