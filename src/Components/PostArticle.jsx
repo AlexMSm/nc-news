@@ -29,19 +29,19 @@ export default function PostArticle({ postNewArticle }) {
     <form onSubmit={onSubmit} className="article-submit">
       <h4>Title</h4>
       <textarea
-        className="comment-form-textarea"
+        className="article-form-title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <h4>Topic</h4>
       <textarea
-        className="comment-form-textarea"
+        className="article-form-topic"
         value={topic}
         onChange={(e) => setTopic(e.target.value)}
       />
       <h4>Content</h4>
       <textarea
-        className="comment-form-textarea"
+        className="article-form-text"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
