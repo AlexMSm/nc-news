@@ -1,10 +1,24 @@
 .profile-articles {
   border: 1px black solid;
+  display: flex;
+  flex-direction: row;
 }
 .profile-article-list {
-  border: 1px black solid;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  border: 2px violet solid;
+}
+.articles-title {
+  border: 2px violet solid;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .profile-article-post {
   border: 1px black solid;
+  width: 50%;
 }

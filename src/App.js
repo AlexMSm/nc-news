@@ -16,7 +16,7 @@ import NavBar from "./Components/PrimaryComponents/NavBar";
 import Home from "./Components/PrimaryComponents/Home";
 import TopicPage from "./Components/PrimaryComponents/TopicPage";
 import Article from "./Components/PrimaryComponents/Article";
-import CommentsPage from "./Components/CommentsPage";
+
 import ProfilePage from "./Components/ProfilePage";
 import ErrorPage from "./Components/ErrorPage";
 import DetailsPage from "./Components/PrimaryComponents/DetailsPage";
@@ -43,7 +43,6 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/Topics/:topic" element={<TopicPage />} />
               <Route path="/Article/:article_id" element={<Article />} />
-              <Route path="/Comments/:article_id" element={<CommentsPage />} />
               <Route path="/Profile/:username" element={<ProfilePage />} />
               <Route path="/Details" element={<DetailsPage />} />
               <Route path="/Contact" element={<ContactPage />} />

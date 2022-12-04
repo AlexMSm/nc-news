@@ -1,14 +1,17 @@
 import { useContext, useState, useEffect } from "react";
 import { getArticles } from "../api";
 import { UserContext } from "../Context/UserContext";
+import BSArticleCard from "./HomeComponents/BSArticleCard";
+import { getTopics, postTopic, postArticle } from "../api";
+import PostArticle from "./PostArticle";
 
 export default function ProfilePage() {
   const { user, setUser } = useContext(UserContext);
   const [articles, setArticles] = useState([]);
   const [articlesLoading, setArticlesLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  console.log(user);
+  const [topics, setTopics] = useState([]);
+  const [articleCount, setArticleCount] = useState(0);
 
   useEffect(() => {
     setArticlesLoading(true);
@@ -24,13 +27,56 @@ export default function ProfilePage() {
         });
         setArticles(userArticles);
         console.log(userArticles);
+        if (userArticles.length !== articleCount) {
+          setArticleCount(userArticles.length);
+        }
         setArticlesLoading(false);
       })
       .catch((err) => {
         setError(err);
         setArticlesLoading(false);
       });
-  }, []);
+    getTopics().then((res) => {
+      setTopics(res);
+    });
+  }, [articleCount]);
+
+  async function postNewArticle(trimmedTitle, trimmedText, trimmedTopic) {
+    console.log("onSubmit");
+    let article = {
+      body: trimmedText,
+      title: trimmedTitle,
+      topic: trimmedTopic,
+      username: user.username,
+    };
+
+    if (
+      !topics
+        .map((topic) => {
+          return topic.slug;
+        })
+        .includes(trimmedTopic)
+    ) {
+      console.log("adding topic", topics, trimmedTopic);
+      await postTopic({
+        slug: trimmedTopic,
+        description: `A new topic on ${trimmedTopic}`,
+      });
+    }
+    console.log("posting article");
+    postArticle(article)
+      .then(() => {
+        console.log(articleCount);
+        setArticleCount((cur) => setArticleCount((cur += 1)));
+        console.log(articleCount);
+      })
+      .catch((err) => {
+        console.log(err);
+        window.alert(
+          `Article failed to post. Error status ${err.status}. ${err.response.data.msg}`
+        );
+      });
+  }
 
   return (
     <div>
@@ -38,9 +84,45 @@ export default function ProfilePage() {
         <h2>Welcome to your profile page {user.username}</h2>
       </div>
       <div className="profile-articles">
-        <div className="profile-article-list">List</div>
+        <div className="profile-article-list">
+          <div>
+            <h3 className="articles-title">Your articles</h3>
+          </div>
+          <div className="article-container">
+            {articles.map(
+              ({
+                article_id,
+                title,
+                author,
+                body,
+                comment_count,
+                created_at,
+                formated_date,
+                topic,
+                votes,
+              }) => {
+                return (
+                  <BSArticleCard
+                    key={`${article_id}_Card`}
+                    article_id={article_id}
+                    title={title}
+                    author={author}
+                    body={body}
+                    comment_count={comment_count}
+                    created_at={created_at}
+                    formated_date={formated_date}
+                    topic={topic}
+                    votes={votes}
+                  />
+                );
+              }
+            )}
+          </div>
+        </div>
 
-        <div className="profile-article-post">Post</div>
+        <div className="profile-article-post">
+          <PostArticle submitLabel="Post" postNewArticle={postNewArticle} />
+        </div>
       </div>
     </div>
   );

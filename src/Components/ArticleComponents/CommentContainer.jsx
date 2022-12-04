@@ -46,11 +46,26 @@ export default function CommentsContainer({ article_id, comment_count }) {
 
   if (commentsLoading) return <h3>Comments loading...</h3>;
 
-  if (error) {
+  if (error && error.response.status !== 404) {
     return (
       <div className="comment-error">
         <h3>Comments failed to load. Status {error.response.status}.</h3>
         <p>{error.response.data.msg}</p>
+      </div>
+    );
+  }
+  if (error && error.response.status === 404) {
+    return (
+      <div>
+        <p className="no-comments-msg">{error.response.data.msg}</p>
+        <div className="comment-form-title">
+          Leave a comment
+          <CommentForm
+            submitLabel="Post"
+            article_id={article_id}
+            postComment={postComment}
+          />
+        </div>
       </div>
     );
   }
