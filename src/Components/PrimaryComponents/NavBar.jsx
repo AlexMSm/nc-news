@@ -7,10 +7,12 @@ import { Link } from "react-router-dom";
 import ncnewsmain from "../../Images/nc-news-main-trim.png";
 import ncemblem from "../../Images/nc-emblem.png";
 import ncnewsshort from "../../Images/nc-news-short.png";
+import { ClickAwayListener } from "@mui/material";
 
 export default function NavBar() {
   const [navState, setNavState] = useState(false);
   const [smallLogo, setSmallLogo] = useState(false);
+  console.log(navState);
 
   useEffect(() => {
     function handleResize() {
@@ -24,17 +26,28 @@ export default function NavBar() {
     window.addEventListener("resize", handleResize);
   });
 
+  const closeMenu = () => {
+    if (navState) {
+      setNavState(false);
+    }
+  };
+
   return (
     <Nav>
       <div className="brand">
-        <div className="branding">
-          <div className="emblem">
-            <img src={ncemblem} alt="brand emblem" />
+        <Link className="home-link" to={"/"}>
+          <div className="branding">
+            <div className="emblem">
+              <img src={ncemblem} alt="brand emblem" />
+            </div>
+            <div className="logo">
+              <img
+                src={smallLogo ? ncnewsshort : ncnewsmain}
+                alt="brand logo"
+              />
+            </div>
           </div>
-          <div className="logo">
-            <img src={smallLogo ? ncnewsshort : ncnewsmain} alt="brand logo" />
-          </div>
-        </div>
+        </Link>
         <div className="toggle">
           <div className="toggle-menu">Menu</div>
           {navState ? (
@@ -44,6 +57,7 @@ export default function NavBar() {
           )}
         </div>
       </div>
+
       <div className={`links ${navState ? "show" : "hide"}`}>
         <ul>
           <li>
@@ -71,6 +85,13 @@ export default function NavBar() {
         </ul>
         <div className="login-btn">
           <ProfileButton />
+        </div>
+        <div className="toggle-dropdown">
+          {navState ? (
+            <BsToggleOn onClick={() => setNavState(false)} />
+          ) : (
+            <BsToggleOff onClick={() => setNavState(true)} />
+          )}
         </div>
       </div>
     </Nav>
@@ -238,6 +259,11 @@ const Nav = styled.nav`
       }
       .login-btn {
         flex-direction: column;
+      }
+    }
+    .toggle-dropdown {
+      svg {
+        font-size: 3rem;
       }
     }
     .show {
