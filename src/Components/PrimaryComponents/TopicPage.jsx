@@ -8,7 +8,7 @@ export default function TopicPage() {
   return (
     <div>
       <div className="topic-title">
-        <h2>{topic}</h2>
+        <h3>{topic}</h3>
         <SearchBar />
       </div>
       <ArticleContainer topic={topic} />

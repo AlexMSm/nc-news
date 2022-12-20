@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import TopicCard from "./TopicCard";
 import { getTopics } from "../../api";
-import SortButtons from "./SortButtons";
+import Stack from "@mui/material/Stack";
+import Divider from "@mui/material/Divider";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 
 export default function TopicsBar() {
   const [topics, setTopics] = useState([]);
@@ -34,15 +37,21 @@ export default function TopicsBar() {
 
   return (
     <div className="topics-bar">
-      {topics.map(({ slug, description }) => {
-        return (
-          <TopicCard
-            key={`${slug}_Card`}
-            topic={slug}
-            description={description}
-          />
-        );
-      })}
+      <Stack
+        direction="row"
+        divider={<Divider orientation="vertical" flexItem />}
+        spacing={2}
+      >
+        {topics.map(({ slug, description }) => {
+          return (
+            <TopicCard
+              key={`${slug}_Card`}
+              topic={slug}
+              description={description}
+            />
+          );
+        })}
+      </Stack>
     </div>
   );
 }

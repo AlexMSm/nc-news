@@ -1,12 +1,12 @@
 import "./App.css";
 import "./cssStyling/Home.css";
-import "./cssStyling/NavBar.css";
 import "./cssStyling/HeaderBar.css";
 import "./cssStyling/TopicsBar.css";
 import "./cssStyling/Article.css";
 import "./cssStyling/Comments.css";
 import "./cssStyling/SortBar.css";
 import "./cssStyling/Profile.css";
+import "./cssStyling/Details.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "./Context/UserContext";
@@ -20,7 +20,7 @@ import Article from "./Components/PrimaryComponents/Article";
 import ProfilePage from "./Components/ProfilePage";
 import ErrorPage from "./Components/ErrorPage";
 import DetailsPage from "./Components/PrimaryComponents/DetailsPage";
-import ContactPage from "./Components/PrimaryComponents/DetailsPage copy";
+import ContactPage from "./Components/PrimaryComponents/ContactPage";
 
 function App() {
   const [user, setUser] = useState({
@@ -46,6 +46,7 @@ function App() {
               <Route path="/Profile/:username" element={<ProfilePage />} />
               <Route path="/Details" element={<DetailsPage />} />
               <Route path="/Contact" element={<ContactPage />} />
+
               <Route path="/*" element={<ErrorPage />} />
             </Routes>
           </div>

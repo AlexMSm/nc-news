@@ -1,0 +1,18 @@
+.details-page {
+  display: flex;
+  flex-direction: column;
+  border: #b74803 solid 1px;
+  border-radius: 10px;
+
+  align-items: center;
+  width: 60%;
+  margin: 5% 20%;
+  padding: 5vh;
+}
+.details-page > h3 {
+  align-self: center;
+  margin: 3vh;
+}
+.details-page > p {
+  margin: 2vh;
+}

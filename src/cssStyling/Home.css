@@ -23,7 +23,7 @@
   display: flex;
   width: 100%;
   margin: 0;
-  background-color: rgb(143, 169, 194);
+  background-color: rgb(175, 208, 241);
 }
 .article-container {
   max-width: 90%;
@@ -134,7 +134,7 @@ div.article-container {
 
 .profile-button {
   height: 5vh;
-  width: 10rem;
+  width: fit-content;
   padding: 10px;
   background-color: whitesmoke;
   border-radius: 10px;
@@ -158,4 +158,9 @@ a {
 .profile-image {
   border-radius: 10px;
   height: 130%;
+}
+
+.nav-buttons {
+  display: inline-flex;
+  justify-content: space-between;
 }

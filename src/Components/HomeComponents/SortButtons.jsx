@@ -41,7 +41,7 @@ export default function SortButtons(props) {
             <BsToggleOff onClick={() => setNavState(true)} />
           )}
         </div>
-        <div className={`sort-text-${navState}`}>Sort options</div>
+        <div className={`sort-text-${navState}`}>Filter</div>
       </div>
       <div className={`sort-options-${navState}`}>
         <div className="dropdown">

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import logo1 from "../../Images/logo1.png";
 import { BsToggleOn, BsToggleOff } from "react-icons/bs";
-import ProfileButton from "../BaseComponents/ProfileButton";
+import ProfileButton from "../ReusedButtons/ProfileButton";
 import { Link } from "react-router-dom";
 import ncnewsmain from "../../Images/nc-news-main-trim.png";
 import ncemblem from "../../Images/nc-emblem.png";
@@ -12,7 +11,6 @@ import { ClickAwayListener } from "@mui/material";
 export default function NavBar() {
   const [navState, setNavState] = useState(false);
   const [smallLogo, setSmallLogo] = useState(false);
-  console.log(navState);
 
   useEffect(() => {
     function handleResize() {
@@ -67,25 +65,27 @@ export default function NavBar() {
               </div>
             </Link>
           </li>
-
           <li>
-            <Link className="home-link" to={"/"}>
+            <Link className="home-link" to={"/Details"}>
               <div className="button-link">
                 <a>Details</a>
               </div>
             </Link>
           </li>
           <li>
-            <Link className="home-link" to={"/"}>
+            <Link className="home-link" to={"/Contact"}>
               <div className="button-link">
                 <a>Contact</a>
               </div>
             </Link>
           </li>
+          <li>
+            <div className="login-btn">
+              <ProfileButton />
+            </div>
+          </li>
         </ul>
-        <div className="login-btn">
-          <ProfileButton />
-        </div>
+
         <div className="toggle-dropdown">
           {navState ? (
             <BsToggleOn onClick={() => setNavState(false)} />
@@ -101,8 +101,8 @@ export default function NavBar() {
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  margin: 1rem 2rem;
-  border-bottom: 1px darkorange solid;
+  margin: 0rem 2rem;
+  border-bottom: 1px #b74803 solid;
   .brand {
     display: flex;
     justify-content: space-around;
@@ -142,12 +142,14 @@ const Nav = styled.nav`
       display: flex;
       align-items: center;
       list-style-type: none;
-      gap: 3rem;
+      gap: 3vw;
       width: 5rem;
       li {
+        background-color: #a3b4c8;
+        border-radius: 0.4rem;
         transition: 0.3s ease-in-out;
         &:first-of-type {
-          background-color: orange;
+          background-color: #cc6d3d;
           border-radius: 0.4rem;
           a {
             color: black;
@@ -157,9 +159,9 @@ const Nav = styled.nav`
           padding: 0.7rem 1rem;
         }
         &:hover {
-          background-color: darkorange;
+          background-color: #b74803;
           border-radius: 0.3rem;
-          color: white;
+          color: b;
           a {
             color: white;
             font-type: bold;
@@ -175,7 +177,7 @@ const Nav = styled.nav`
     }
     .login-btn {
       display: flex;
-      align-items: center;
+
       justify-content: center;
       gap: 2rem;
       .flag {
@@ -218,7 +220,7 @@ const Nav = styled.nav`
       }
     }
   }
-  @media screen and (min-width: 280px) and (max-width: 1060px) {
+  @media screen and (min-width: 280px) and (max-width: 1160px) {
     position: relative;
     margin: 0;
     .brand {
@@ -235,6 +237,7 @@ const Nav = styled.nav`
       .toggle {
         position: absolute;
         right: 5vw;
+        color: #cc6d3d;
         display: block;
         svg {
           font-size: 2rem;
@@ -265,6 +268,7 @@ const Nav = styled.nav`
       svg {
         font-size: 3rem;
       }
+      color: #cc6d3d;
     }
     .show {
       top: 0;
