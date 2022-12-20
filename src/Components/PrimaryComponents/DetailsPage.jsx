@@ -17,8 +17,8 @@ export default function DetailsPage() {
       </ul>
       <p>You may find the links for the backend API and repo here:</p>
       <ul>
-        <li>https://github.com/AlexMSm/nc-backend-project</li>
         <li>https://als-news-app.herokuapp.com/api</li>
+        <li>https://github.com/AlexMSm/nc-backend-project</li>
       </ul>
 
       <h3>Future refactors</h3>
