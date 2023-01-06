@@ -60,23 +60,17 @@ export default function NavBar() {
         <ul>
           <li>
             <Link className="home-link" to={"/"}>
-              <div className="button-link">
-                <a>Home</a>
-              </div>
+              <div className="button-link">Home</div>
             </Link>
           </li>
           <li>
             <Link className="home-link" to={"/Details"}>
-              <div className="button-link">
-                <a>Details</a>
-              </div>
+              <div className="button-link">Details</div>
             </Link>
           </li>
           <li>
             <Link className="home-link" to={"/Contact"}>
-              <div className="button-link">
-                <a>Contact</a>
-              </div>
+              <div className="button-link">Contact</div>
             </Link>
           </li>
           <li>

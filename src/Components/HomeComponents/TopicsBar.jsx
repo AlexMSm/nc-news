@@ -3,7 +3,7 @@ import TopicCard from "./TopicCard";
 import { getTopics } from "../../api";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
-import Tab from "@mui/material/Tab";
+import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
 export default function TopicsBar() {
@@ -25,7 +25,15 @@ export default function TopicsBar() {
       });
   }, []);
 
-  if (topicsLoading) return <h3>Topics loading ....</h3>;
+  if (topicsLoading)
+    return (
+      <h3>
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress />
+          Topics loading ....
+        </Box>
+      </h3>
+    );
 
   if (error) {
     return (

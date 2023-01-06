@@ -4,7 +4,8 @@ import { getArticleById } from "../../api";
 import ContentContainer from "../ArticleComponents/ContentContainer";
 import CommentsContainer from "../ArticleComponents/CommentContainer";
 import TopicsBar from "../HomeComponents/TopicsBar";
-import SearchBar from "../HomeComponents/SearchBar";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 export default function Article() {
   const [article, setArticle] = useState([]);
@@ -26,7 +27,13 @@ export default function Article() {
       });
   }, [article_id]);
 
-  if (articleLoading) return <h3>Article loading...</h3>;
+  if (articleLoading)
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+        Article loading ....
+      </Box>
+    );
 
   if (error) {
     return (

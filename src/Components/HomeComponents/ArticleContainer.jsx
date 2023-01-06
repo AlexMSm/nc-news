@@ -4,6 +4,8 @@ import { getArticles } from "../../api";
 import { useParams, Link } from "react-router-dom";
 import { ArticleSOContext } from "../../Context/ArticleSOContext";
 import BSArticleCard from "./BSArticleCard";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 export default function ArticleContainer() {
   const [articles, setArticles] = useState([]);
@@ -30,7 +32,7 @@ export default function ArticleContainer() {
   }, [params]);
 
   useEffect(() => {
-    ///...SOUpdate
+    ///...SOUpdate (search/order)
     let query = { ...topic, ...SOUpdate };
     setArticlesLoading(true);
     getArticles(query)
@@ -49,7 +51,13 @@ export default function ArticleContainer() {
       });
   }, [topic]);
 
-  if (articlesLoading) return <h3>Articles loading...</h3>;
+  if (articlesLoading)
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+        Articles loading ....
+      </Box>
+    );
 
   if (error) {
     return (
